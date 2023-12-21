@@ -1,0 +1,246 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<w:document xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" xmlns:wpsCustomData="http://www.wps.cn/officeDocument/2013/wpsCustomData" mc:Ignorable="w14 w15 wp14">
+  <w:body>
+    <w:p>
+      <w:r>
+        <w:rPr>
+          <w:sz w:val="21"/>
+        </w:rPr>
+        <mc:AlternateContent>
+          <mc:Choice Requires="wps">
+            <w:drawing>
+              <wp:anchor distT="0" distB="0" distL="114300" distR="114300" simplePos="0" relativeHeight="251660288" behindDoc="0" locked="0" layoutInCell="1" allowOverlap="1">
+                <wp:simplePos x="0" y="0"/>
+                <wp:positionH relativeFrom="column">
+                  <wp:posOffset>1868805</wp:posOffset>
+                </wp:positionH>
+                <wp:positionV relativeFrom="paragraph">
+                  <wp:posOffset>145415</wp:posOffset>
+                </wp:positionV>
+                <wp:extent cx="914400" cy="914400"/>
+                <wp:effectExtent l="6350" t="6350" r="19050" b="19050"/>
+                <wp:wrapNone/>
+                <wp:docPr id="5" name="文本框 5"/>
+                <wp:cNvGraphicFramePr/>
+                <a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
+                  <a:graphicData uri="http://schemas.microsoft.com/office/word/2010/wordprocessingShape">
+                    <wps:wsp>
+                      <wps:cNvSpPr txBox="1"/>
+                      <wps:spPr>
+                        <a:xfrm>
+                          <a:off x="1943735" y="3134360"/>
+                          <a:ext cx="914400" cy="914400"/>
+                        </a:xfrm>
+                        <a:prstGeom prst="rect">
+                          <a:avLst/>
+                        </a:prstGeom>
+                        <a:solidFill>
+                          <a:schemeClr val="lt1"/>
+                        </a:solidFill>
+                        <a:ln w="6350">
+                          <a:solidFill>
+                            <a:prstClr val="black"/>
+                          </a:solidFill>
+                        </a:ln>
+                      </wps:spPr>
+                      <wps:style>
+                        <a:lnRef idx="0">
+                          <a:schemeClr val="accent1"/>
+                        </a:lnRef>
+                        <a:fillRef idx="0">
+                          <a:schemeClr val="accent1"/>
+                        </a:fillRef>
+                        <a:effectRef idx="0">
+                          <a:schemeClr val="accent1"/>
+                        </a:effectRef>
+                        <a:fontRef idx="minor">
+                          <a:schemeClr val="dk1"/>
+                        </a:fontRef>
+                      </wps:style>
+                      <wps:txbx>
+                        <w:txbxContent>
+                          <w:p>
+                            <w:pPr>
+                              <w:rPr>
+                                <w:rFonts w:hint="default" w:eastAsiaTheme="minorEastAsia"/>
+                                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+                              </w:rPr>
+                            </w:pPr>
+                            <w:r>
+                              <w:rPr>
+                                <w:rFonts w:hint="eastAsia"/>
+                                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+                              </w:rPr>
+                              <w:t>我是一个横向文本框</w:t>
+                            </w:r>
+                          </w:p>
+                        </w:txbxContent>
+                      </wps:txbx>
+                      <wps:bodyPr rot="0" spcFirstLastPara="0" vertOverflow="overflow" horzOverflow="overflow" vert="horz" wrap="square" lIns="91440" tIns="45720" rIns="91440" bIns="45720" numCol="1" spcCol="0" rtlCol="0" fromWordArt="0" anchor="t" anchorCtr="0" forceAA="0" compatLnSpc="1">
+                        <a:noAutofit/>
+                      </wps:bodyPr>
+                    </wps:wsp>
+                  </a:graphicData>
+                </a:graphic>
+              </wp:anchor>
+            </w:drawing>
+          </mc:Choice>
+          <mc:Fallback>
+            <w:pict>
+              <v:shape id="_x0000_s1026" o:spid="_x0000_s1026" o:spt="202" type="#_x0000_t202" style="position:absolute;left:0pt;margin-left:147.15pt;margin-top:11.45pt;height:72pt;width:72pt;z-index:251660288;mso-width-relative:page;mso-height-relative:page;" fillcolor="#FFFFFF [3201]" filled="t" stroked="t" coordsize="21600,21600" o:gfxdata="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&#10;">
+                <v:fill on="t" focussize="0,0"/>
+                <v:stroke weight="0.5pt" color="#000000 [3204]" joinstyle="round"/>
+                <v:imagedata o:title=""/>
+                <o:lock v:ext="edit" aspectratio="f"/>
+                <v:textbox>
+                  <w:txbxContent>
+                    <w:p>
+                      <w:pPr>
+                        <w:rPr>
+                          <w:rFonts w:hint="default" w:eastAsiaTheme="minorEastAsia"/>
+                          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+                        </w:rPr>
+                      </w:pPr>
+                      <w:r>
+                        <w:rPr>
+                          <w:rFonts w:hint="eastAsia"/>
+                          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+                        </w:rPr>
+                        <w:t>我是一个横向文本框</w:t>
+                      </w:r>
+                    </w:p>
+                  </w:txbxContent>
+                </v:textbox>
+              </v:shape>
+            </w:pict>
+          </mc:Fallback>
+        </mc:AlternateContent>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:sz w:val="21"/>
+        </w:rPr>
+        <mc:AlternateContent>
+          <mc:Choice Requires="wps">
+            <w:drawing>
+              <wp:anchor distT="0" distB="0" distL="114300" distR="114300" simplePos="0" relativeHeight="251659264" behindDoc="0" locked="0" layoutInCell="1" allowOverlap="1">
+                <wp:simplePos x="0" y="0"/>
+                <wp:positionH relativeFrom="column">
+                  <wp:posOffset>3228975</wp:posOffset>
+                </wp:positionH>
+                <wp:positionV relativeFrom="paragraph">
+                  <wp:posOffset>59690</wp:posOffset>
+                </wp:positionV>
+                <wp:extent cx="914400" cy="914400"/>
+                <wp:effectExtent l="6350" t="6350" r="19050" b="19050"/>
+                <wp:wrapNone/>
+                <wp:docPr id="4" name="文本框 4"/>
+                <wp:cNvGraphicFramePr/>
+                <a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
+                  <a:graphicData uri="http://schemas.microsoft.com/office/word/2010/wordprocessingShape">
+                    <wps:wsp>
+                      <wps:cNvSpPr txBox="1"/>
+                      <wps:spPr>
+                        <a:xfrm>
+                          <a:off x="1678305" y="2311400"/>
+                          <a:ext cx="914400" cy="914400"/>
+                        </a:xfrm>
+                        <a:prstGeom prst="rect">
+                          <a:avLst/>
+                        </a:prstGeom>
+                        <a:solidFill>
+                          <a:schemeClr val="lt1"/>
+                        </a:solidFill>
+                        <a:ln w="6350">
+                          <a:solidFill>
+                            <a:prstClr val="black"/>
+                          </a:solidFill>
+                        </a:ln>
+                      </wps:spPr>
+                      <wps:style>
+                        <a:lnRef idx="0">
+                          <a:schemeClr val="accent1"/>
+                        </a:lnRef>
+                        <a:fillRef idx="0">
+                          <a:schemeClr val="accent1"/>
+                        </a:fillRef>
+                        <a:effectRef idx="0">
+                          <a:schemeClr val="accent1"/>
+                        </a:effectRef>
+                        <a:fontRef idx="minor">
+                          <a:schemeClr val="dk1"/>
+                        </a:fontRef>
+                      </wps:style>
+                      <wps:txbx>
+                        <w:txbxContent>
+                          <w:p>
+                            <w:pPr>
+                              <w:rPr>
+                                <w:rFonts w:hint="default" w:eastAsiaTheme="minorEastAsia"/>
+                                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+                              </w:rPr>
+                            </w:pPr>
+                            <w:r>
+                              <w:rPr>
+                                <w:rFonts w:hint="eastAsia"/>
+                                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+                              </w:rPr>
+                              <w:t>我是一个多行文本框</w:t>
+                            </w:r>
+                          </w:p>
+                        </w:txbxContent>
+                      </wps:txbx>
+                      <wps:bodyPr rot="0" spcFirstLastPara="0" vertOverflow="overflow" horzOverflow="overflow" vert="horz" wrap="square" lIns="91440" tIns="45720" rIns="91440" bIns="45720" numCol="1" spcCol="0" rtlCol="0" fromWordArt="0" anchor="t" anchorCtr="0" forceAA="0" upright="0" compatLnSpc="1">
+                        <a:spAutoFit/>
+                      </wps:bodyPr>
+                    </wps:wsp>
+                  </a:graphicData>
+                </a:graphic>
+              </wp:anchor>
+            </w:drawing>
+          </mc:Choice>
+          <mc:Fallback>
+            <w:pict>
+              <v:shape id="_x0000_s1026" o:spid="_x0000_s1026" o:spt="202" type="#_x0000_t202" style="position:absolute;left:0pt;margin-left:254.25pt;margin-top:4.7pt;height:72pt;width:72pt;z-index:251659264;mso-width-relative:page;mso-height-relative:page;" fillcolor="#FFFFFF [3201]" filled="t" stroked="t" coordsize="21600,21600" o:gfxdata="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&#10;">
+                <v:fill on="t" focussize="0,0"/>
+                <v:stroke weight="0.5pt" color="#000000 [3204]" joinstyle="round"/>
+                <v:imagedata o:title=""/>
+                <o:lock v:ext="edit" aspectratio="f"/>
+                <v:textbox style="mso-fit-shape-to-text:t;">
+                  <w:txbxContent>
+                    <w:p>
+                      <w:pPr>
+                        <w:rPr>
+                          <w:rFonts w:hint="default" w:eastAsiaTheme="minorEastAsia"/>
+                          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+                        </w:rPr>
+                      </w:pPr>
+                      <w:r>
+                        <w:rPr>
+                          <w:rFonts w:hint="eastAsia"/>
+                          <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+                        </w:rPr>
+                        <w:t>我是一个多行文本框</w:t>
+                      </w:r>
+                    </w:p>
+                  </w:txbxContent>
+                </v:textbox>
+              </v:shape>
+            </w:pict>
+          </mc:Fallback>
+        </mc:AlternateContent>
+      </w:r>
+      <w:bookmarkStart w:id="0" w:name="_GoBack"/>
+      <w:bookmarkEnd w:id="0"/>
+    </w:p>
+    <w:sectPr>
+      <w:headerReference r:id="rId5" w:type="default"/>
+      <w:footerReference r:id="rId6" w:type="default"/>
+      <w:pgSz w:w="12240" w:h="15840"/>
+      <w:pgMar w:top="1440" w:right="1800" w:bottom="1440" w:left="1800" w:header="708" w:footer="708" w:gutter="0"/>
+      <w:pgNumType w:fmt="decimal"/>
+      <w:cols w:space="708" w:num="1"/>
+      <w:docGrid w:linePitch="360" w:charSpace="0"/>
+    </w:sectPr>
+  </w:body>
+</w:document>
