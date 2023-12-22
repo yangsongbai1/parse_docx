@@ -16,4 +16,4 @@ logs
 /deploy/conf_local.ini
 /test.py
 gunicorn_gpt_trans.pid
-file/
+file/*
