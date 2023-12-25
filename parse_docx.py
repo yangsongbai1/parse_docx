@@ -6,9 +6,17 @@ import zipfile
 from copy import deepcopy
 from pprint import pprint
 import shutil
+
+import langid
+from langdetect import detect
+
 import xml2dict
 from lxml import etree
 import pysbd
+import pymongo
+
+myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+mydb = myclient["docx"]
 
 
 class DocxParser:
@@ -29,6 +37,19 @@ class DocxParser:
         seg = pysbd.Segmenter(language="en", clean=False)
         return seg.segment(text)
 
+    def parse_language(self):
+        with zipfile.ZipFile(self.src_filename, "r") as z:
+            tree = etree.parse(z.open('word/document.xml', "r"))
+            text_list = tree.xpath(".//text()")
+            text = "".join(text_list)
+            # text = "我是繁體，真的是正體字"
+            language_list = ['en', 'zh']
+            langid.set_languages(language_list)
+            language = langid.classify(text)[0]
+            # if language == "zh":
+            #     language = detect(text)
+            print(language)
+
     def parse_p(self, p):
         """
         解析p标签
@@ -36,15 +57,31 @@ class DocxParser:
         :return:
         """
         # 获取段落内容
-        r_text_list = p.xpath('./w:r/w:t/text()', namespaces=self.namespaces)
-        p_text = "".join(r_text_list)
+        # 遇到公式，需要将公式左右切割成两句话
+        children = p.xpath('./*', namespaces=self.namespaces)
+        text_list = []
+        one_text_list = []
+        for child in children:
+            tag = etree.QName(child).localname
+            if tag == "oMath":
+                text_list.append("".join(one_text_list))
+                one_text_list = []
+            else:
+                # 获取段落内容
+                r_text_list = child.xpath('./w:t/text()', namespaces=self.namespaces)
+                one_text_list.extend(r_text_list)
+        if one_text_list:
+            text_list.append("".join(one_text_list))
         # 拆句，拆成句子列表
-        sentence_list = self.split_sentence(p_text)
+        all_sentence_list = []
+        for text in text_list:
+            sentence_list = self.split_sentence(text)
+            all_sentence_list.extend(sentence_list)
         # 转成json
         p_xml_str = etree.tostring(p, encoding="utf-8").decode("utf-8")
         p_dict = xml2dict.parse(p_xml_str)
         # 将块归类到每个句子下边
-        p_info = self.get_sentence_r_list(sentence_list, p_dict)
+        p_info = self.get_sentence_r_list(all_sentence_list, p_dict)
         return p_info
 
     @staticmethod
@@ -60,7 +97,7 @@ class DocxParser:
         if len(sentence_list) == 1:
             sentence_dict = {
                 "origin_text": sentence_list[0],
-                "rs": r_dict
+                "rs": r_dict or {}
             }
             sentence_list_all.append(sentence_dict)
             return sentence_list_all
@@ -68,13 +105,13 @@ class DocxParser:
         if len(sentence_list) == 0:
             sentence_dict = {
                 "origin_text": "",
-                "rs": r_dict
+                "rs": r_dict or {}
             }
             sentence_list_all.append(sentence_dict)
             return sentence_list_all
 
         run_on_start = 0
-        for sentence in sentence_list:
+        for no, sentence in enumerate(sentence_list):
             sentence_dict = {
                 "origin_text": sentence
             }
@@ -570,8 +607,27 @@ class DocxParser:
 
 
 if __name__ == '__main__':
-    docx_parser = DocxParser("file/1.docx")
+    filename = "file/1.docx"
+    docx_parser = DocxParser(filename)
+    # docx_parser.parse_language()
     file_infos_dict = docx_parser.parse_file()
+    #
+    # mycol = mydb["1.docx"]
+    # # for i in file_infos_dict:
+    # #     p_list = file_infos_dict[i]
+    # #     for p in p_list:
+    # #         mycol.insert_many(p)
+    # #         print('-------------------')
+    #
+    # query = {"origin_text": "我是第二句话。"}
+    # for x in mycol.find(query, {"rs": 1}):
+    #     print(x)
+
+    # query = {"origin_text": "我是第二句话。"}
+    # new_values = {"$set": {"trans_text": "I'm the second sentence."}}
+    # mycol.update_many(query, new_values)
+
+    # mycol.insert_many(file_infos_dict[i])
     # print(json.dumps(file_infos_dict, ensure_ascii=False))
     # print('-------------------')
     trans_file_infos_dict = docx_parser.translate_file()
@@ -580,3 +636,5 @@ if __name__ == '__main__':
     # print(json.dumps(docx_parser.translate_file(), ensure_ascii=False))
     docx_parser.compose_docx()
     # # docx_parser.json2xml()
+    # a = docx_parser.split_sentence("你好啊，我是谁。你睡吗？")
+    # print(a)

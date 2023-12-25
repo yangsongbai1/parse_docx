@@ -189,13 +189,21 @@ class _DictSAXHandler(object):
         try:
             # print(key)
             value = item[key]
-            no = self.no_dict[key]
-            self.no_dict[key] += 1
+            # no = self.no_dict[key]
+            # self.no_dict[key] += 1
+            # item[f"{key}.{no}"] = data
+
+            no_dict = collections.defaultdict(list)
+            exist_keys = list(item.keys())
+            for exist_key in exist_keys:
+                i = exist_key.rsplit(".", 1)
+                if len(i) == 2:
+                    no_dict[i[0]].append(int(i[1]))
+                else:
+                    no_dict[i[0]].append(0)
+            no = max(no_dict[key]) + 1
             item[f"{key}.{no}"] = data
-            # if isinstance(value, list):
-            #     value.append(data)
-            # else:
-            #     item[key] = [value, data]
+
         except KeyError:
             if self._should_force_list(key, data):
                 item[key] = [data]
