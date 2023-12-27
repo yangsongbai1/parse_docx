@@ -14,6 +14,7 @@ import xml2dict
 from lxml import etree
 import pysbd
 import pymongo
+from trans_dict import trans_dict
 
 myclient = pymongo.MongoClient("mongodb://localhost:27017/")
 mydb = myclient["docx"]
@@ -21,7 +22,7 @@ mydb = myclient["docx"]
 
 class DocxParser:
 
-    def __init__(self, src_filename, trans_filename=None):
+    def __init__(self, src_filename, trans_filename=None, download_type=0):
         self.namespaces_dict = {}
         self.namespaces = {}
         self.p_infos = []
@@ -31,6 +32,8 @@ class DocxParser:
         self.file_infos_dict = {}
         self.src_filename = src_filename
         self.trans_filename = trans_filename or f"{self.src_filename.rsplit('.', 1)[0]}-译文.docx"
+        # 0 译文， 1-原译文对照，2-译原文对照
+        self.download_type = download_type
 
     @staticmethod
     def split_sentence(text):
@@ -259,7 +262,7 @@ class DocxParser:
         with zipfile.ZipFile(self.src_filename, "r") as z:
             for full_filename in z.namelist():
                 filename = full_filename.split("/")[-1]
-                if filename.startswith("header"):
+                if filename.startswith("header") and filename.endswith(".xml"):
                     tree = etree.parse(z.open(full_filename, "r"))
                     root = tree.getroot()
                     self.namespaces = root.nsmap
@@ -279,7 +282,7 @@ class DocxParser:
         with zipfile.ZipFile(self.src_filename, "r") as z:
             for full_filename in z.namelist():
                 filename = full_filename.split("/")[-1]
-                if filename.startswith("footer"):
+                if filename.startswith("footer") and filename.endswith(".xml"):
                     tree = etree.parse(z.open(full_filename, "r"))
                     root = tree.getroot()
                     self.namespaces = root.nsmap
@@ -311,7 +314,7 @@ class DocxParser:
             for file_info in file_infos:
                 for sentence in file_info:
                     origin_text = sentence.get("origin_text")
-                    trans_text = f"【{origin_text}】"
+                    trans_text = trans_dict.get(origin_text, origin_text)
                     sentence['trans_text'] = trans_text
                     rs = sentence.get("rs")
                     trans_rs = {}
@@ -336,6 +339,45 @@ class DocxParser:
         # print("-========-----------------")
         return self.file_infos_dict
 
+    @staticmethod
+    def create_node(p_info, p_namespaces_dict, key):
+        p_dict = {}
+        p_dict.update(p_namespaces_dict)
+        rk_no = collections.defaultdict(int)
+        for sentence in p_info:
+            sentence_r_dict = sentence[key]
+            for rk, rv in sentence_r_dict.items():
+                if rk in p_dict:
+                    rk = rk.split(".")[0]
+                    no = rk_no[rk]
+                    p_dict[f"{rk}.{no}"] = rv
+                    rk_no[rk] += 1
+                else:
+                    p_dict[rk] = rv
+        p_xml_dict = {
+            "w:p": p_dict
+        }
+        p_xml_str = xml2dict.unparse(p_xml_dict)
+        p_xml_str = p_xml_str.replace("""<?xml version="1.0" encoding="utf-8"?>""", '').strip()
+        p_node = etree.fromstring(p_xml_str)
+        return p_node
+
+    def join_xml(self, child, p_infos, p_index, p_namespaces_dict):
+        parent_node = child.getparent()
+        index = parent_node.index(child)
+        p_info = p_infos[p_index]
+        origin_p_node = self.create_node(p_info, p_namespaces_dict, "rs")
+        trans_p_node = self.create_node(p_info, p_namespaces_dict, "trans_r")
+        # 0 译文， 1-原译文对照，2-译原文对照
+        if self.download_type == 0:
+            parent_node[index] = trans_p_node
+        elif self.download_type == 1:
+            parent_node[index] = trans_p_node
+            parent_node.insert(index, origin_p_node)
+        elif self.download_type == 2:
+            parent_node[index] = trans_p_node
+            parent_node.insert(index + 1, origin_p_node)
+
     def get_document_xml_str(self):
         with zipfile.ZipFile(self.src_filename, "r") as z:
             p_infos = self.file_infos_dict["word/document.xml"]
@@ -349,56 +391,12 @@ class DocxParser:
             for child_index, child in enumerate(children):
                 tag = etree.QName(child.tag).localname
                 if tag == "p":
-                    # 获取段落
-                    p_info = p_infos[p_index]
-                    p_dict = {}
-                    p_dict.update(p_namespaces_dict)
-                    rk_no = collections.defaultdict(int)
-                    for sentence in p_info:
-                        sentence_r_dict = sentence["trans_r"]
-                        for rk, rv in sentence_r_dict.items():
-                            if rk in p_dict:
-                                rk = rk.split(".")[0]
-                                no = rk_no[rk]
-                                p_dict[f"{rk}.{no}"] = rv
-                                rk_no[rk] += 1
-                            else:
-                                p_dict[rk] = rv
-                    p_xml_dict = {
-                        "w:p": p_dict
-                    }
-                    p_xml_str = xml2dict.unparse(p_xml_dict)
-                    p_xml_str = p_xml_str.replace("""<?xml version="1.0" encoding="utf-8"?>""", '').strip()
-                    p_node = etree.fromstring(p_xml_str)
-                    body[child_index] = p_node
+                    self.join_xml(child, p_infos, p_index, p_namespaces_dict)
                     p_index += 1
                 elif tag == "tbl":
                     p_list = child.xpath(".//w:p", namespaces=self.namespaces)
                     for p in p_list:
-                        parent_node = p.getparent()
-                        index = parent_node.index(p)
-                        p_info = p_infos[p_index]
-                        p_dict = {}
-                        p_dict.update(p_namespaces_dict)
-                        rk_no = collections.defaultdict(int)
-                        for sentence in p_info:
-                            sentence_r_dict = sentence["trans_r"]
-                            for rk, rv in sentence_r_dict.items():
-                                if rk in p_dict:
-                                    rk = rk.split(".")[0]
-                                    no = rk_no[rk]
-                                    p_dict[f"{rk}.{no}"] = rv
-                                    rk_no[rk] += 1
-                                else:
-                                    p_dict[rk] = rv
-
-                        p_xml_dict = {
-                            "w:p": p_dict
-                        }
-                        p_xml_str = xml2dict.unparse(p_xml_dict)
-                        p_xml_str = p_xml_str.replace("""<?xml version="1.0" encoding="utf-8"?>""", '').strip()
-                        p_node = etree.fromstring(p_xml_str)
-                        parent_node[index] = p_node
+                        self.join_xml(p, p_infos, p_index, p_namespaces_dict)
                         p_index += 1
                 else:
                     # print(tag, "其他标签")
@@ -608,27 +606,10 @@ class DocxParser:
 
 if __name__ == '__main__':
     filename = "file/1.docx"
-    docx_parser = DocxParser(filename)
-    # docx_parser.parse_language()
+    docx_parser = DocxParser(filename, download_type=2)
+    docx_parser.parse_language()
     file_infos_dict = docx_parser.parse_file()
-    #
-    # mycol = mydb["1.docx"]
-    # # for i in file_infos_dict:
-    # #     p_list = file_infos_dict[i]
-    # #     for p in p_list:
-    # #         mycol.insert_many(p)
-    # #         print('-------------------')
-    #
-    # query = {"origin_text": "我是第二句话。"}
-    # for x in mycol.find(query, {"rs": 1}):
-    #     print(x)
-
-    # query = {"origin_text": "我是第二句话。"}
-    # new_values = {"$set": {"trans_text": "I'm the second sentence."}}
-    # mycol.update_many(query, new_values)
-
-    # mycol.insert_many(file_infos_dict[i])
-    # print(json.dumps(file_infos_dict, ensure_ascii=False))
+    print(json.dumps(file_infos_dict, ensure_ascii=False))
     # print('-------------------')
     trans_file_infos_dict = docx_parser.translate_file()
     # print(json.dumps(trans_file_infos_dict, ensure_ascii=False))
