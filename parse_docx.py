@@ -375,8 +375,8 @@ class DocxParser:
             parent_node[index] = trans_p_node
             parent_node.insert(index, origin_p_node)
         elif self.download_type == 2:
-            parent_node[index] = trans_p_node
-            parent_node.insert(index + 1, origin_p_node)
+            parent_node[index] = origin_p_node
+            parent_node.insert(index, trans_p_node)
 
     def get_document_xml_str(self):
         with zipfile.ZipFile(self.src_filename, "r") as z:
