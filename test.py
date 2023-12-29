@@ -1,12 +1,47 @@
-from xml2dict import unparse
-from lxml import etree
+# 创建一个字典
+from collections import OrderedDict
 
-a = {'w:p': {'@xmlns:wpc': 'http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas', '@xmlns:mc': 'http://schemas.openxmlformats.org/markup-compatibility/2006', '@xmlns:o': 'urn:schemas-microsoft-com:office:office', '@xmlns:r': 'http://schemas.openxmlformats.org/officeDocument/2006/relationships', '@xmlns:m': 'http://schemas.openxmlformats.org/officeDocument/2006/math', '@xmlns:v': 'urn:schemas-microsoft-com:vml', '@xmlns:wp14': 'http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing', '@xmlns:wp': 'http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing', '@xmlns:w': 'http://schemas.openxmlformats.org/wordprocessingml/2006/main', '@xmlns:w14': 'http://schemas.microsoft.com/office/word/2010/wordml', '@xmlns:w10': 'urn:schemas-microsoft-com:office:word', '@xmlns:w15': 'http://schemas.microsoft.com/office/word/2012/wordml', '@xmlns:wpg': 'http://schemas.microsoft.com/office/word/2010/wordprocessingGroup', '@xmlns:wpi': 'http://schemas.microsoft.com/office/word/2010/wordprocessingInk', '@xmlns:wne': 'http://schemas.microsoft.com/office/word/2006/wordml', '@xmlns:wps': 'http://schemas.microsoft.com/office/word/2010/wordprocessingShape', '@xmlns:wpsCustomData': 'http://www.wps.cn/officeDocument/2013/wpsCustomData', 'w:commentRangeStart': {'@w:id': '1'}, 'w:r': {'w:t': '翻译 == 此图标需要双击后，再单击按钮后生效。 == 翻译'}, 'w:r.0': {'w:drawing': {'wp:inline': {'@distT': '0', '@distB': '0', '@distL': '0', '@distR': '0', 'wp:extent': {'@cx': '423545', '@cy': '203200'}, 'wp:effectExtent': {'@l': '19050', '@t': '19050', '@r': '14605', '@b': '25400'}, 'wp:docPr': {'@id': '1', '@name': '图片 1'}, 'wp:cNvGraphicFramePr': {'a:graphicFrameLocks': {'@noChangeAspect': '1'}}, 'a:graphic': {'a:graphicData': {'@uri': 'http://schemas.openxmlformats.org/drawingml/2006/picture', 'pic:pic': {'pic:nvPicPr': {'pic:cNvPr': {'@id': '1', '@name': '图片 1'}, 'pic:cNvPicPr': {'a:picLocks': {'@noChangeAspect': '1'}}}, 'pic:blipFill': {'a:blip': {'@r:embed': 'rId10'}, 'a:stretch': {'a:fillRect': None}}, 'pic:spPr': {'a:xfrm': {'a:off': {'@x': '0', '@y': '0'}, 'a:ext': {'@cx': '441979', '@cy': '212215'}}, 'a:prstGeom': {'@prst': 'rect', 'a:avLst': None}, 'a:ln': {'@w': '3175', 'a:solidFill': {'a:schemeClr': {'@val': 'tx1'}}}}}}}}}}, 'w:r.4': {'w:drawing': {'wp:inline': {'@distT': '0', '@distB': '0', '@distL': '0', '@distR': '0', 'wp:extent': {'@cx': '511175', '@cy': '181610'}, 'wp:effectExtent': {'@l': '0', '@t': '0', '@r': '3175', '@b': '8890'}, 'wp:docPr': {'@id': '2', '@name': '图片 2'}, 'wp:cNvGraphicFramePr': {'a:graphicFrameLocks': {'@noChangeAspect': '1'}}, 'a:graphic': {'a:graphicData': {'@uri': 'http://schemas.openxmlformats.org/drawingml/2006/picture', 'pic:pic': {'pic:nvPicPr': {'pic:cNvPr': {'@id': '2', '@name': '图片 2'}, 'pic:cNvPicPr': {'a:picLocks': {'@noChangeAspect': '1', '@noChangeArrowheads': '1'}}}, 'pic:blipFill': {'a:blip': {'@r:embed': 'rId11', 'a:extLst': {'a:ext': {'@uri': '{28A0092B-C50C-407E-A947-70E740481C1C}', 'a14:useLocalDpi': {'@val': '0'}}}}, 'a:srcRect': None, 'a:stretch': {'a:fillRect': None}}, 'pic:spPr': {'a:xfrm': {'a:off': {'@x': '0', '@y': '0'}, 'a:ext': {'@cx': '511175', '@cy': '181610'}}, 'a:prstGeom': {'@prst': 'rect', 'a:avLst': None}, 'a:noFill': None, 'a:ln': {'a:noFill': None}}}}}}}}, 'w:commentRangeEnd': {'@w:id': '1'}, 'w:r.6': {'w:commentReference': {'@w:id': '1'}}}}
+my_dict = {'apple': 10, 'banana': 5, 'orange': 8}
 
-xml_str = unparse(a)
-xml_str = xml_str.replace("""<?xml version="1.0" encoding="utf-8"?>""", '').strip()
 
-print(xml_str)
-p_node = etree.fromstring(xml_str)
+def update_dict(my_dict, key_to_insert_after, new_dict):
+    keys = list(my_dict.keys())
+    my_dict_list = list(my_dict.items())
+    index = keys.index(key_to_insert_after)
+    result_dict = dict(my_dict_list[:index + 1] + list(new_dict.items()) + my_dict_list[index + 1:])
+    return result_dict
 
-# print(p_node)
+
+# 打印原始字典
+print("原始字典:", my_dict)
+
+# 指定元素后边添加新元素
+key_to_insert_after = 'banana'
+new_key = 'grape'
+new_value = 12
+
+
+dd = update_dict(my_dict, key_to_insert_after, {new_key: new_value})
+print(dd)
+
+exit()
+
+
+# 判断指定的键是否在字典中
+if key_to_insert_after in my_dict:
+    # 使用字典的 update 方法添加新元素
+    new_items = {new_key: new_value}
+    temp_dict = {key: my_dict[key] for key in my_dict.keys()}
+    temp_dict.update(new_items)
+
+    # 获取指定键的索引位置
+    index = list(temp_dict.keys()).index(key_to_insert_after)
+
+    # 将新元素插入到指定位置后
+    result_dict = OrderedDict(
+        list(temp_dict.items())[:index + 1] + list(new_items.items()) + list(temp_dict.items())[index + 1:])
+
+    # 打印修改后的字典
+    print("修改后的字典:", result_dict)
+else:
+    print(f"键 '{key_to_insert_after}' 不存在于字典中。")

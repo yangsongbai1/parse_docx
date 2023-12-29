@@ -2,6 +2,7 @@ import collections
 import copy
 import json
 import os
+import uuid
 import zipfile
 from copy import deepcopy
 from pprint import pprint
@@ -18,6 +19,18 @@ from trans_dict import trans_dict
 
 myclient = pymongo.MongoClient("mongodb://localhost:27017/")
 mydb = myclient["docx"]
+
+corpus_dict = {
+    "实验室": "laboratory"
+}
+
+
+def insert_dict(my_dict, key_to_insert_after, new_dict):
+    keys = list(my_dict.keys())
+    my_dict_list = list(my_dict.items())
+    index = keys.index(key_to_insert_after)
+    result_dict = dict(my_dict_list[:index + 1] + list(new_dict.items()) + my_dict_list[index + 1:])
+    return result_dict
 
 
 class DocxParser:
@@ -334,7 +347,278 @@ class DocxParser:
                             write_wt = False
                         else:
                             continue
+
+                    self.align_corner_mark(origin_rs=rs, trans_rs=trans_rs)
+
                     sentence["trans_r"] = trans_rs
+        # print(json.dumps(self.file_infos_dict, ensure_ascii=False))
+        # print("-========-----------------")
+        return self.file_infos_dict
+
+    def get_r_style_dict(self, rs):
+        """
+        翻译
+        先把段落样式写进去，构造一个空壳
+        将原文每个块的样式组成字典, 如果有重复的块内容，则将块内容携带上前一个块的内容
+        eg: {块内容: 本块样式}
+        循环原文快，匹配语料库，如果匹配到语料库，用语料译文在翻译文中查找，
+        如果查找到，则将匹配到的译文 赋予样式，存入块列表中
+        循环完毕，对比匹配到的块列表和翻译文，将未匹配的内容，按照翻译文顺序，插入到块列表中，并继承上一个块的样式
+        :param text:
+        :return:
+        """
+        r_style_dict = {}
+        for t, v in rs.items():
+            if isinstance(v, dict) and (wt := v.get("w:t")):
+                r_text = wt
+                if isinstance(wt, dict):
+                    r_text = wt.get("#text")
+                if not r_text:
+                    continue
+                r_style_dict[r_text] = {t: v}
+        return r_style_dict
+
+    def translate_file2(self):
+        """
+        翻译
+        :param text:
+        :return:
+        """
+        for filename in self.file_infos_dict:
+            file_infos = self.file_infos_dict[filename]
+            for file_info in file_infos:
+                for sentence in file_info:
+                    origin_text = sentence.get("origin_text")
+                    trans_text = trans_dict.get(origin_text, origin_text)
+                    sentence['trans_text'] = trans_text
+                    rs = sentence.get("rs")
+                    r_style_dict = self.get_r_style_dict(rs)
+                    trans_rs = {}
+                    # 匹配到样式的块列表
+                    style_text = []
+                    for t, v in rs.items():
+                        if not isinstance(v, dict):
+                            trans_rs[t] = v
+                            continue
+                        tag = t.split(".")[0]
+                        wt = v.get("w:t")
+                        if tag != "w:r" or wt is None:
+                            trans_rs[t] = v
+                        else:
+                            r_text = wt
+                            if isinstance(wt, dict):
+                                r_text = wt.get("#text")
+                            if not r_text:
+                                trans_rs[t] = v
+                            else:
+                                # 去匹配语料
+                                r_trans_text = corpus_dict.get(r_text)
+                                if r_trans_text:
+                                    # 拿语料译文，去翻译文中找
+                                    index = trans_text.find(r_trans_text)
+                                    if index != -1:
+                                        # 如果存在，则查找对应的样式
+                                        r_style = r_style_dict.get(r_text)
+                                        # 创造译文样式块
+                                        # r_style = {'w:r': {'w:rPr': {'w:u': {'@w:val': 'single'}}, 'w:t': '实验室'}}
+                                        trans_r_style = copy.deepcopy(r_style)
+                                        trans_r_style["w:r"]["w:t"] = r_trans_text
+                                        style_text.append(trans_r_style)
+                    # print(style_text)
+                    # print('-----')
+                    # print(json.dumps(trans_rs, ensure_ascii=False))
+                    # print('===++++===')
+                    base_r = {"w:rPr": {"w:rFonts": {"@w:hint": "eastAsia"},
+                                        "w:lang": {"@w:val": "en-US", "@w:eastAsia": "zh-CN"}}, "w:t": "我是第二行的第二句话。"}
+                    trans_text_start = 0
+                    # style_text = [{'w:r': {'w:rPr': {'w:u': {'@w:val': 'single'}}, 'w:t': '实验室'}}, ...]
+                    for i in style_text:
+                        t_text = i["w:r"]["w:t"]
+                        # print(t_text, '=-=-')
+                        trans_text_end = trans_text.index(t_text)
+                        # print(trans_text_start, trans_text_end)
+                        front_no_style_text = trans_text[trans_text_start:trans_text_end]
+                        # print(trans_text)
+                        # print(front_no_style_text, '--')
+                        if front_no_style_text:
+                            # print(trans_rs)
+                            front_no_style = copy.deepcopy(base_r)
+                            front_no_style["w:t"] = front_no_style_text
+                            # print(front_no_style)
+                            trans_rs[f"w:r.{str(uuid.uuid4())}"] = front_no_style
+                            # print(trans_rs)
+                        trans_rs[f"w:r.{str(uuid.uuid4())}"] = list(i.values())[0]
+                        trans_text_start = trans_text_end + len(t_text)
+                    front_no_style_text = trans_text[trans_text_start:]
+                    if front_no_style_text:
+                        front_no_style = copy.deepcopy(base_r)
+                        front_no_style["w:t"] = front_no_style_text
+                        trans_rs[f"w:r.{str(uuid.uuid4())}"] = front_no_style
+                    sentence["trans_r"] = trans_rs
+                    # print(json.dumps(trans_rs, ensure_ascii=False))
+                    # print('------我是最终-')
+        # print(json.dumps(self.file_infos_dict, ensure_ascii=False))
+        # print("-========-----------------")
+        return self.file_infos_dict
+
+    @staticmethod
+    def align_corner_mark(origin_rs, trans_rs):
+        """
+        对齐角标
+        :param origin_rs: 原文样式
+        :param trans_rs: 译文样式
+        :return:
+        """
+        pre_text = ""
+        style_text_dict = {}
+        # 循环原文样式，找到含有上下标的样式
+        # 含有角标是，将角标和前面的文本组合起来，尽量减少重复，作为key，样式作为value
+        for tag, v in origin_rs.items():
+            tag = tag.split(".")[0]
+            if tag == "w:r":
+                if "w:vertAlign" in str(v):
+                    # 有角标的内容
+                    mark_text = v.get("w:t")
+                    zuhe_text = pre_text + mark_text
+                    d = {
+                        "pre_text": pre_text,
+                        "mark_text": mark_text,
+                        "style": v
+                    }
+                    style_text_dict[zuhe_text] = d
+                    pre_text = ""
+                else:
+                    pre_text = v.get("w:t", "")
+        print(style_text_dict)
+        # 循环有角标的样式，找到对应的译文
+        for zuhe_text, d in style_text_dict.items():
+            # 译文的全部样式
+            trans_rs_copy = copy.deepcopy(trans_rs)
+            for tag, t_rs in trans_rs_copy.items():
+                # tag = w:r.1
+                # t_rs 某一个块或r
+                # {
+                #     "w:rPr": {
+                #         "w:u": {
+                #             "@w:val": "single"
+                #         }
+                #     },
+                #     "w:t": "译文"
+                # }
+                if not isinstance(t_rs, dict):
+                    continue
+                r_wt_text = t_rs.get("w:t", "")
+                if (index := r_wt_text.find(zuhe_text)) != -1:
+                    # 第二句的样式，继承第一句的样式
+                    text2_rs = copy.deepcopy(t_rs)
+                    # 要添加的样式，即中间的样式
+                    middle_rs = d["style"]
+                    pre_text = d["pre_text"]
+                    middle_text = d["mark_text"]
+                    # left_text, right_text = r_wt_text.split(zuhe_text)
+                    left_text = r_wt_text[:index]
+                    right_text = r_wt_text[index + len(zuhe_text):]
+                    left_text += pre_text
+                    t_rs["w:t"] = left_text
+                    text2_rs["w:t"] = right_text
+                    middle_rs["w:t"] = middle_text
+                    # 给原有的翻译样式添加角标
+                    trans_rs[tag] = t_rs
+                    # trans_rs = insert_dict(trans_rs, tag, tag)
+                    trans_rs[f"w:r.{str(uuid.uuid4())}"] = middle_rs
+                    trans_rs[f"w:r.{str(uuid.uuid4())}"] = text2_rs
+                    print(trans_rs)
+
+    def translate_file3(self):
+        """
+        翻译 角标还原
+        :param text:
+        :return:
+        """
+        for filename in self.file_infos_dict:
+            file_infos = self.file_infos_dict[filename]
+            for file_info in file_infos:
+                for sentence in file_info:
+                    origin_text = sentence.get("origin_text")
+                    trans_text = trans_dict.get(origin_text, origin_text)
+                    sentence['trans_text'] = trans_text
+                    rs = sentence.get("rs")
+                    trans_rs = {}
+                    write_wt = True
+                    for t, v in rs.items():
+                        if not isinstance(v, dict):
+                            trans_rs[t] = v
+                            continue
+                        tag = t.split(".")[0]
+                        wt = v.get("w:t")
+                        if tag != "w:r" or wt is None:
+                            trans_rs[t] = v
+                        elif write_wt:
+                            r_copy = copy.deepcopy(v)
+                            r_copy["w:t"] = trans_text
+                            trans_rs[t] = r_copy
+                            write_wt = False
+                        else:
+                            continue
+
+                    # 角标还原
+                    pre_text = ""
+                    style_text_dict = {}
+                    for t, v in rs.items():
+                        tag = t.split(".")[0]
+                        if tag == "w:r":
+                            if "w:vertAlign" in str(v):
+                                text = v.get("w:t")
+                                zuhe_text = pre_text + text
+                                d = {
+                                    "pre_text": pre_text,
+                                    "text": text,
+                                    "style": v
+                                }
+                                style_text_dict[zuhe_text] = d
+                                pre_text = ""
+                            else:
+                                pre_text = v.get("w:t", "")
+                    print(style_text_dict)
+                    for zuhe_text, d in style_text_dict.items():
+                        # 译文的全部样式
+                        trans_rs_copy = copy.deepcopy(trans_rs)
+                        for node, t_rs in trans_rs_copy.items():
+                            # t_rs 某一个块或r
+                            # {
+                            #     "w:rPr": {
+                            #         "w:u": {
+                            #             "@w:val": "single"
+                            #         }
+                            #     },
+                            #     "w:t": "译文"
+                            # }
+                            if not isinstance(t_rs, dict):
+                                continue
+                            tst = t_rs.get("w:t", "")
+                            if (index := tst.find(zuhe_text)) != -1:
+                                # print(node, tst, index)
+                                # 第二句的样式，继承第一句的样式
+                                text2_rs = copy.deepcopy(t_rs)
+                                # 要添加的样式，即中间的样式
+                                middle_rs = d["style"]
+                                pre_text = d["pre_text"]
+                                middle_text = d["text"]
+                                text1, text2 = trans_text.split(zuhe_text)
+                                text1 += pre_text
+                                t_rs["w:t"] = text1
+                                text2_rs["w:t"] = text2
+                                middle_rs["w:t"] = middle_text
+
+                                trans_rs["w:r"] = t_rs
+                                trans_rs["w:r.1"] = middle_rs
+                                trans_rs["w:r.2"] = text2_rs
+                                # print(t_rs)
+                                # print(text2_rs)
+                                # print(middle_rs)
+                                print(trans_rs)
+                    sentence["trans_r"] = trans_rs
+
         # print(json.dumps(self.file_infos_dict, ensure_ascii=False))
         # print("-========-----------------")
         return self.file_infos_dict
@@ -606,10 +890,10 @@ class DocxParser:
 
 if __name__ == '__main__':
     filename = "file/1.docx"
-    docx_parser = DocxParser(filename, download_type=2)
+    docx_parser = DocxParser(filename, download_type=0)
     docx_parser.parse_language()
     file_infos_dict = docx_parser.parse_file()
-    print(json.dumps(file_infos_dict, ensure_ascii=False))
+    # print(json.dumps(file_infos_dict, ensure_ascii=False))
     # print('-------------------')
     trans_file_infos_dict = docx_parser.translate_file()
     # print(json.dumps(trans_file_infos_dict, ensure_ascii=False))
