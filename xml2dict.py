@@ -105,7 +105,7 @@ class _DictSAXHandler(object):
     def _attrs_to_dict(self, attrs):
         if not isinstance(attrs, dict):
             attrs = self.dict_constructor(zip(attrs[0::2], attrs[1::2]))
-        # attrs = {key: value for key, value in attrs.items() if not key.startswith('xmlns')}
+        attrs = {key: value for key, value in attrs.items() if not key.startswith('xmlns')}
         return attrs
 
     def startNamespaceDecl(self, prefix, uri):

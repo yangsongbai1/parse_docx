@@ -38,10 +38,6 @@ class DocxParser:
     def __init__(self, src_filename, trans_filename=None, download_type=0):
         self.namespaces_dict = {}
         self.namespaces = {}
-        self.p_infos = []
-        self.endnote_infos = []
-        self.footnotes_infos = []
-        self.comments_infos = []
         self.file_infos_dict = {}
         self.src_filename = src_filename
         self.trans_filename = trans_filename or f"{self.src_filename.rsplit('.', 1)[0]}-译文.docx"
@@ -77,14 +73,20 @@ class DocxParser:
         children = p.xpath('./*', namespaces=self.namespaces)
         text_list = []
         one_text_list = []
+        textbox_p_infos = []
         for child in children:
             tag = etree.QName(child).localname
             if tag == "oMath":
                 text_list.append("".join(one_text_list))
                 one_text_list = []
+            elif child.xpath("mc:AlternateContent", namespaces=self.namespaces):
+                textbox_p_list = child.xpath(".//w:p", namespaces=self.namespaces)
+                for textbox_p in textbox_p_list:
+                    p_info, _ = self.parse_p(textbox_p)
+                    textbox_p_infos.append(p_info)
             else:
-                # 获取段落内容
-                r_text_list = child.xpath('./w:t/text()', namespaces=self.namespaces)
+                # 获取段落内容，如果有问题，就将 .//w:t 改成 ./w:t 并特殊处理其他标签
+                r_text_list = child.xpath('.//w:t/text()', namespaces=self.namespaces)
                 one_text_list.extend(r_text_list)
         if one_text_list:
             text_list.append("".join(one_text_list))
@@ -98,7 +100,7 @@ class DocxParser:
         p_dict = xml2dict.parse(p_xml_str)
         # 将块归类到每个句子下边
         p_info = self.get_sentence_r_list(all_sentence_list, p_dict)
-        return p_info
+        return p_info, textbox_p_infos
 
     @staticmethod
     def get_sentence_r_list(sentence_list, p_dict):
@@ -189,17 +191,22 @@ class DocxParser:
             for child in children:
                 tag = etree.QName(child.tag).localname
                 if tag == "p":
-                    p_info = self.parse_p(child)
+                    p_info, textbox_p_infos = self.parse_p(child)
+                    # 文本框节点前置，适用于前置处理文本框,然后组装p节点
+                    # p_infos.extend(textbox_p_infos)
                     p_infos.append(p_info)
+                    p_infos.extend(textbox_p_infos)
                 elif tag == "tbl":
                     p_list = child.xpath(".//w:p", namespaces=self.namespaces)
                     for p in p_list:
-                        p_info = self.parse_p(p)
+                        p_info, _ = self.parse_p(p)
                         p_infos.append(p_info)
                 else:
                     # print(tag, "其他标签")
                     # todo: 解析其他标签
                     pass
+                # 文本框节点后置，适用于后置处理文本框
+                # p_infos.extend(textbox_p_infos)
             # print(json.dumps(p_infos, ensure_ascii=False))
         self.file_infos_dict["word/document.xml"] = p_infos
         return p_infos
@@ -220,7 +227,7 @@ class DocxParser:
             for child in children:
                 p_list = child.xpath("./w:p", namespaces=self.namespaces)
                 for p in p_list:
-                    footnote_infos = self.parse_p(p)
+                    footnote_infos, _ = self.parse_p(p)
                     footnotes_infos.append(footnote_infos)
         self.file_infos_dict["word/footnotes.xml"] = footnotes_infos
         return footnotes_infos
@@ -241,7 +248,7 @@ class DocxParser:
             for child in children:
                 p_list = child.xpath("./w:p", namespaces=self.namespaces)
                 for p in p_list:
-                    endnote_info = self.parse_p(p)
+                    endnote_info, _ = self.parse_p(p)
                     endnote_infos.append(endnote_info)
         self.file_infos_dict["word/endnotes.xml"] = endnote_infos
         return endnote_infos
@@ -262,7 +269,7 @@ class DocxParser:
             for child in children:
                 p_list = child.xpath("./w:p", namespaces=self.namespaces)
                 for p in p_list:
-                    comment_info = self.parse_p(p)
+                    comment_info, _ = self.parse_p(p)
                     comments_infos.append(comment_info)
         self.file_infos_dict["word/comments.xml"] = comments_infos
         return comments_infos
@@ -282,7 +289,7 @@ class DocxParser:
                     children = root.xpath("./w:p", namespaces=self.namespaces)
                     headers_infos = []
                     for child in children:
-                        header_info = self.parse_p(child)
+                        header_info, _ = self.parse_p(child)
                         headers_infos.append(header_info)
                     self.file_infos_dict[full_filename] = headers_infos
         return self.file_infos_dict
@@ -302,7 +309,7 @@ class DocxParser:
                     children = root.xpath("./w:p", namespaces=self.namespaces)
                     footer_infos = []
                     for child in children:
-                        footer_info = self.parse_p(child)
+                        footer_info, _ = self.parse_p(child)
                         footer_infos.append(footer_info)
                     self.file_infos_dict[full_filename] = footer_infos
         return self.file_infos_dict
@@ -327,7 +334,8 @@ class DocxParser:
             for file_info in file_infos:
                 for sentence in file_info:
                     origin_text = sentence.get("origin_text")
-                    trans_text = trans_dict.get(origin_text, origin_text)
+                    # trans_text = trans_dict.get(origin_text, f"【{origin_text}】")
+                    trans_text = f"【{origin_text}】"
                     sentence['trans_text'] = trans_text
                     rs = sentence.get("rs")
                     trans_rs = {}
@@ -489,7 +497,7 @@ class DocxParser:
                     pre_text = ""
                 else:
                     pre_text = v.get("w:t", "")
-        print(style_text_dict)
+        # print(style_text_dict)
         # 循环有角标的样式，找到对应的译文
         for zuhe_text, d in style_text_dict.items():
             # 译文的全部样式
@@ -527,7 +535,7 @@ class DocxParser:
                     # trans_rs = insert_dict(trans_rs, tag, tag)
                     trans_rs[f"w:r.{str(uuid.uuid4())}"] = middle_rs
                     trans_rs[f"w:r.{str(uuid.uuid4())}"] = text2_rs
-                    print(trans_rs)
+                    # print(trans_rs)
 
     def translate_file3(self):
         """
@@ -579,7 +587,7 @@ class DocxParser:
                                 pre_text = ""
                             else:
                                 pre_text = v.get("w:t", "")
-                    print(style_text_dict)
+                    # print(style_text_dict)
                     for zuhe_text, d in style_text_dict.items():
                         # 译文的全部样式
                         trans_rs_copy = copy.deepcopy(trans_rs)
@@ -646,12 +654,32 @@ class DocxParser:
         p_node = etree.fromstring(p_xml_str)
         return p_node
 
+    def join_child_xml(self, p_node, p_index, p_infos, p_namespaces_dict, key):
+        start_p_index = p_index
+        AlternateContent_list = p_node.xpath(".//mc:AlternateContent", namespaces=self.namespaces)
+        for AlternateContent in AlternateContent_list:
+            AlternateContent_parent_node = AlternateContent.getparent()
+            AlternateContent_index = AlternateContent_parent_node.index(AlternateContent)
+            p_list = AlternateContent.xpath(".//w:p", namespaces=self.namespaces)
+            for p in p_list:
+                parent_node = p.getparent()
+                index = parent_node.index(p)
+                textbox_p_info = p_infos[p_index]
+                textbox_p_node = self.create_node(textbox_p_info, p_namespaces_dict, key)
+                parent_node[index] = textbox_p_node
+                p_index += 1
+            AlternateContent_parent_node[AlternateContent_index] = AlternateContent
+        return p_index - start_p_index
+
     def join_xml(self, child, p_infos, p_index, p_namespaces_dict):
         parent_node = child.getparent()
         index = parent_node.index(child)
         p_info = p_infos[p_index]
         origin_p_node = self.create_node(p_info, p_namespaces_dict, "rs")
         trans_p_node = self.create_node(p_info, p_namespaces_dict, "trans_r")
+        p_index += 1
+        step_index = self.join_child_xml(trans_p_node, p_index, p_infos, p_namespaces_dict, "trans_r")
+        p_index += step_index
         # 0 译文， 1-原译文对照，2-译原文对照
         if self.download_type == 0:
             parent_node[index] = trans_p_node
@@ -661,6 +689,7 @@ class DocxParser:
         elif self.download_type == 2:
             parent_node[index] = origin_p_node
             parent_node.insert(index, trans_p_node)
+        return p_index
 
     def get_document_xml_str(self):
         with zipfile.ZipFile(self.src_filename, "r") as z:
@@ -675,13 +704,11 @@ class DocxParser:
             for child_index, child in enumerate(children):
                 tag = etree.QName(child.tag).localname
                 if tag == "p":
-                    self.join_xml(child, p_infos, p_index, p_namespaces_dict)
-                    p_index += 1
+                    p_index = self.join_xml(child, p_infos, p_index, p_namespaces_dict)
                 elif tag == "tbl":
                     p_list = child.xpath(".//w:p", namespaces=self.namespaces)
                     for p in p_list:
-                        self.join_xml(p, p_infos, p_index, p_namespaces_dict)
-                        p_index += 1
+                        p_index = self.join_xml(p, p_infos, p_index, p_namespaces_dict)
                 else:
                     # print(tag, "其他标签")
                     # print(json.dumps(p_infos, ensure_ascii=False))
@@ -889,17 +916,20 @@ class DocxParser:
 
 
 if __name__ == '__main__':
-    filename = "file/1.docx"
+    filename = "file/2.docx"
     docx_parser = DocxParser(filename, download_type=0)
     docx_parser.parse_language()
     file_infos_dict = docx_parser.parse_file()
-    # print(json.dumps(file_infos_dict, ensure_ascii=False))
+    # print(json.dumps(file_infos_dict["word/document.xml"], ensure_ascii=False))
+    # json.dump(file_infos_dict["word/document.xml"], open("test.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
     # print('-------------------')
     trans_file_infos_dict = docx_parser.translate_file()
-    # print(json.dumps(trans_file_infos_dict, ensure_ascii=False))
+    json.dump(trans_file_infos_dict["word/document.xml"], open("test1.json", "w", encoding="utf-8"), ensure_ascii=False,
+              indent=4)
+    # print(json.dumps(trans_file_infos_dict["word/document.xml"], ensure_ascii=False))
     # print('-------------------')
     # print(json.dumps(docx_parser.translate_file(), ensure_ascii=False))
-    docx_parser.compose_docx()
+    # docx_parser.compose_docx()
     # # docx_parser.json2xml()
     # a = docx_parser.split_sentence("你好啊，我是谁。你睡吗？")
     # print(a)
