@@ -4,7 +4,7 @@ trans_dict = {
     '我是居中': 'I am in the middle',
     '图书《计算机科学技术》是清华大学出版社发行？': "Is the book 'Computer Science and Technology' published by Tsinghua University Press? ",
     '我是第二行的第二句话。': 'I am the second sentence of the second line.',
-    '大学教授 刘强、徐萌': 'University professors Liu Qiang, Xu Meng 加一个',
+    '大学教授 刘强、徐萌': 'University professors Liu Qiang, Xu Meng add a space',
     '我，是一句话。': 'Me, a sentence.',
     '我,是第二句？': 'Me, the second sentence?',
     '请拆1句。': 'Please open one sentence.',
