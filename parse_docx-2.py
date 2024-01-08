@@ -75,17 +75,16 @@ class DocxParser:
         rd_list = []
         for child in children:
             child_tag = etree.QName(child).localname
-            descendant_p_list = child.xpath(".//w:p", namespaces=self.namespaces)
+            if child.xpath(".//w:p", namespaces=self.namespaces):
+                continue
             # 遇到oMath标签，要拆句
             if child_tag == "oMath":
                 text_list.append("".join(one_text_list))
                 one_text_list = []
-            elif descendant_p_list:
-                continue
             else:
-                r_text_list = child.xpath('.//w:t/text()', namespaces=self.namespaces)
+                r_text_list = child.xpath('.//w:t//text()', namespaces=self.namespaces)
                 one_text_list.extend(r_text_list)
-                if child_tag == "r" and child.xpath(".//w:t", namespaces=self.namespaces):
+                if child_tag == "r" and child.xpath(".//w:t//text()", namespaces=self.namespaces):
                     r_dict = xml2dict.parse(etree.tostring(child, encoding="utf-8").decode("utf-8"),
                                             strip_whitespace=False)
                     rd_list.append(r_dict)
@@ -101,10 +100,16 @@ class DocxParser:
         # 拆句，拆成句子列表
         all_sentence_list = []
         for text in text_list:
-            sentence_list = self.split_sentence(text)
-            all_sentence_list.extend(sentence_list)
+            if text.strip() == "":
+                all_sentence_list.append(text)
+            else:
+                sentence_list = self.split_sentence(text)
+                all_sentence_list.extend(sentence_list)
         # 将块归类到每个句子下边
-        p_info = self.get_sentence_r_list(all_sentence_list, rd_list)
+        if any(all_sentence_list):
+            p_info = self.get_sentence_r_list(all_sentence_list, rd_list)
+        else:
+            p_info = []
         return p_info
 
     @staticmethod
@@ -189,9 +194,8 @@ class DocxParser:
             p_infos = []
             for p in p_list:
                 p_info = self.parse_p(p)
-                # if p_info:
-                #     p_infos.append(p_info)
-                p_infos.append(p_info)
+                if p_info:
+                    p_infos.append(p_info)
             # print(json.dumps(p_infos, ensure_ascii=False))
         self.file_infos_dict[filename] = p_infos
         return p_infos
@@ -234,29 +238,19 @@ class DocxParser:
                     sentence["trans_r"] = trans_rs
         return self.file_infos_dict
 
-    def join_xml(self, p_node, p_infos, p_info_index, p_namespaces_dict):
-        parent_node = p_node.getparent()
-        p_node_index = parent_node.index(p_node)
-        p_info = p_infos[p_info_index]
-
-        # 将句子的r放到一个列表中
-        sentence_rs = []
-        for sentence in p_info:
-            sentence_rs.extend(sentence["trans_r"])
-
+    def join_xml(self, p_node, p_infos, p_info_index, p_namespaces_dict, tree):
         trans_p_node = copy.deepcopy(p_node)
         child_node_list = trans_p_node.xpath("./*", namespaces=self.namespaces)
 
         separator_node = []
         has_content = False
         for child_node in child_node_list:
+            if child_node.xpath(".//w:p", namespaces=self.namespaces):
+                continue
             child_tag = etree.QName(child_node).localname
-            descendant_p_list = child_node.xpath(".//w:p", namespaces=self.namespaces)
-            if descendant_p_list:
+            if child_tag == "oMath":
                 continue
-            elif child_tag == "oMath":
-                continue
-            elif child_tag == "r" and child_node.xpath(".//w:t", namespaces=self.namespaces):
+            elif child_tag == "r" and child_node.xpath(".//w:t//text()", namespaces=self.namespaces):
                 r_parent_node = child_node.getparent()
                 r_parent_node.remove(child_node)
                 has_content = True
@@ -264,19 +258,30 @@ class DocxParser:
                 r_list = child_node.xpath('.//w:r', namespaces=self.namespaces)
                 for r in r_list:
                     r_parent_node = r.getparent()
-                    if r.xpath(".//w:t", namespaces=self.namespaces):
+                    if r.xpath(".//w:t//text()", namespaces=self.namespaces):
                         r_parent_node.remove(r)
                         has_content = True
-        # if not has_content:
-        #     return p_info_index
+        if not has_content:
+            return p_info_index
 
+        # 将句子的r放到一个列表中
+        p_info = p_infos[p_info_index]
+        sentence_rs = []
+        for sentence in p_info:
+            sentence_rs.extend(sentence["trans_r"])
+
+        # 组装新的p
         for sentence_r_dict in sentence_rs:
             sentence_r_dict["w:r"].update(p_namespaces_dict)
             r_xml_str = xml2dict.unparse(sentence_r_dict)
             r_xml_str = r_xml_str.replace("""<?xml version="1.0" encoding="utf-8"?>""", '').strip()
             trans_p_node.append(etree.fromstring(r_xml_str))
 
-        # parent_node.insert(p_node_index, trans_p_node)
+        # 将p放入文档
+        parent_node = p_node.getparent()
+        p_node_index = parent_node.index(p_node)
+
+        # parent_node.insert(p_node_index+1, trans_p_node)
         parent_node[p_node_index] = trans_p_node
 
         p_info_index += 1
@@ -291,8 +296,10 @@ class DocxParser:
             p_node_list = tree.xpath(".//w:p", namespaces=self.namespaces)
             p_info_index = 0
             for p_node in p_node_list:
-                p_info_index = self.join_xml(p_node, p_infos, p_info_index, p_namespaces_dict)
-                # p_info_index += 1
+                p_info_index = self.join_xml(p_node, p_infos, p_info_index, p_namespaces_dict, tree)
+
+        # if filename == "word/document.xml":
+        #     print(etree.tostring(tree, encoding="utf-8", pretty_print=True).decode())
 
         return etree.tostring(tree, encoding="utf-8", pretty_print=True).decode()
 
@@ -313,7 +320,7 @@ class DocxParser:
 
 
 if __name__ == '__main__':
-    filename = "file/2.docx"
+    filename = "file/1.docx"
     docx_parser = DocxParser(filename, download_type=0)
     # docx_parser.parse_language()
     file_infos_dict = docx_parser.parse_file()

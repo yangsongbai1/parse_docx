@@ -1,16 +1,1482 @@
-<doc>
-    <a>
-        <b>
-            <a>
-                我a是内容
-            </a>
-        </b>
-        <wt>
-            我是b内容
-        </wt>
-        <b>
-            <a>我是a2内容</a>
-        </b>
-        <wt>我是真内容</wt>
-    </a>
-</doc>
+<w:document xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:o="urn:schemas-microsoft-com:office:office"
+            xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"
+            xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml"
+            xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing"
+            xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"
+            xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+            xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml"
+            xmlns:w10="urn:schemas-microsoft-com:office:word"
+            xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml"
+            xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup"
+            xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk"
+            xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml"
+            xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape"
+            xmlns:wpsCustomData="http://www.wps.cn/officeDocument/2013/wpsCustomData" mc:Ignorable="w14 w15 wp14">
+    <w:body>
+        <w:p>
+            <w:pPr>
+                <w:jc w:val="center"/>
+                <w:rPr>
+                    <w:rFonts w:hint="eastAsia" w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+                    <w:color w:val="333333"/>
+                    <w:sz w:val="21"/>
+                    <w:szCs w:val="21"/>
+                    <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+                    <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+                </w:rPr>
+            </w:pPr>
+            <w:bookmarkStart w:id="0" w:name="文档内连接"/>
+            <w:bookmarkEnd w:id="0"/>
+            <w:r>
+                <w:rPr>
+                    <w:u w:val="single"/>
+                </w:rPr>
+                <w:t>【实验室面积为1000m2，国际商标™和公司℠版权®。】</w:t>
+            </w:r>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:hint="eastAsia" w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+                    <w:color w:val="333333"/>
+                    <w:sz w:val="21"/>
+                    <w:szCs w:val="21"/>
+                    <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+                    <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+                </w:rPr>
+                <w:t>【我是第二句话。】</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:jc w:val="center"/>
+                <w:rPr>
+                    <w:rFonts w:hint="default" w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+                    <w:color w:val="333333"/>
+                    <w:sz w:val="21"/>
+                    <w:szCs w:val="21"/>
+                    <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+                    <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+                </w:rPr>
+            </w:pPr>
+            <w:bookmarkStart w:id="1" w:name="_GoBack"/>
+            <w:bookmarkEnd w:id="1"/>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:hint="eastAsia" w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+                    <w:color w:val="333333"/>
+                    <w:sz w:val="21"/>
+                    <w:szCs w:val="21"/>
+                    <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+                    <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+                </w:rPr>
+                <w:t>【我是居中】</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:rPr>
+                    <w:rFonts w:hint="default" w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"
+                              w:eastAsiaTheme="minorEastAsia"/>
+                    <w:color w:val="333333"/>
+                    <w:sz w:val="21"/>
+                    <w:szCs w:val="21"/>
+                    <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+                    <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+                </w:rPr>
+            </w:pPr>
+            <w:r>
+                <w:rPr>
+                    <w:sz w:val="21"/>
+                </w:rPr>
+                <mc:AlternateContent>
+                    <mc:Choice Requires="wps">
+                        <w:drawing>
+                            <wp:anchor distT="0" distB="0" distL="114300" distR="114300" simplePos="0"
+                                       relativeHeight="251659264" behindDoc="0" locked="0" layoutInCell="1"
+                                       allowOverlap="1">
+                                <wp:simplePos x="0" y="0"/>
+                                <wp:positionH relativeFrom="column">
+                                    <wp:posOffset>2440940</wp:posOffset>
+                                </wp:positionH>
+                                <wp:positionV relativeFrom="paragraph">
+                                    <wp:posOffset>198120</wp:posOffset>
+                                </wp:positionV>
+                                <wp:extent cx="914400" cy="914400"/>
+                                <wp:effectExtent l="6350" t="6350" r="19050" b="19050"/>
+                                <wp:wrapNone/>
+                                <wp:docPr id="4" name="文本框 4"/>
+                                <wp:cNvGraphicFramePr/>
+                                <a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
+                                    <a:graphicData
+                                            uri="http://schemas.microsoft.com/office/word/2010/wordprocessingShape">
+                                        <wps:wsp>
+                                            <wps:cNvSpPr txBox="1"/>
+                                            <wps:spPr>
+                                                <a:xfrm>
+                                                    <a:off x="1922780" y="2179320"/>
+                                                    <a:ext cx="914400" cy="914400"/>
+                                                </a:xfrm>
+                                                <a:prstGeom prst="rect">
+                                                    <a:avLst/>
+                                                </a:prstGeom>
+                                                <a:solidFill>
+                                                    <a:schemeClr val="lt1"/>
+                                                </a:solidFill>
+                                                <a:ln w="6350">
+                                                    <a:solidFill>
+                                                        <a:prstClr val="black"/>
+                                                    </a:solidFill>
+                                                </a:ln>
+                                            </wps:spPr>
+                                            <wps:style>
+                                                <a:lnRef idx="0">
+                                                    <a:schemeClr val="accent1"/>
+                                                </a:lnRef>
+                                                <a:fillRef idx="0">
+                                                    <a:schemeClr val="accent1"/>
+                                                </a:fillRef>
+                                                <a:effectRef idx="0">
+                                                    <a:schemeClr val="accent1"/>
+                                                </a:effectRef>
+                                                <a:fontRef idx="minor">
+                                                    <a:schemeClr val="dk1"/>
+                                                </a:fontRef>
+                                            </wps:style>
+                                            <wps:txbx>
+                                                <w:txbxContent>
+                                                    <w:p>
+                                                        <w:pPr>
+                                                            <w:rPr>
+                                                                <w:rFonts w:hint="eastAsia"/>
+                                                                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+                                                            </w:rPr>
+                                                        </w:pPr>
+                                                        <w:r>
+                                                            <w:rPr>
+                                                                <w:rFonts w:hint="eastAsia"/>
+                                                                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+                                                            </w:rPr>
+                                                            <w:t>我是一个文本框</w:t>
+                                                        </w:r>
+                                                    </w:p>
+                                                    <w:p>
+                                                        <w:pPr>
+                                                            <w:rPr>
+                                                                <w:rFonts w:hint="default"/>
+                                                                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+                                                            </w:rPr>
+                                                        </w:pPr>
+                                                        <w:r>
+                                                            <w:rPr>
+                                                                <w:rFonts w:hint="eastAsia"/>
+                                                                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+                                                            </w:rPr>
+                                                            <w:t>我是文本框的第二段</w:t>
+                                                        </w:r>
+                                                    </w:p>
+                                                </w:txbxContent>
+                                            </wps:txbx>
+                                            <wps:bodyPr rot="0" spcFirstLastPara="0" vertOverflow="overflow"
+                                                        horzOverflow="overflow" vert="horz" wrap="square" lIns="91440"
+                                                        tIns="45720" rIns="91440" bIns="45720" numCol="1" spcCol="0"
+                                                        rtlCol="0" fromWordArt="0" anchor="t" anchorCtr="0" forceAA="0"
+                                                        compatLnSpc="1">
+                                                <a:noAutofit/>
+                                            </wps:bodyPr>
+                                        </wps:wsp>
+                                    </a:graphicData>
+                                </a:graphic>
+                            </wp:anchor>
+                        </w:drawing>
+                    </mc:Choice>
+                    <mc:Fallback>
+                        <w:pict>
+                            <v:shape id="_x0000_s1026" o:spid="_x0000_s1026" o:spt="202" type="#_x0000_t202"
+                                     style="position:absolute;left:0pt;margin-left:192.2pt;margin-top:15.6pt;height:72pt;width:72pt;z-index:251659264;mso-width-relative:page;mso-height-relative:page;"
+                                     fillcolor="#FFFFFF [3201]" filled="t" stroked="t" coordsize="21600,21600"
+                                     o:gfxdata="UEsFBgAAAAAAAAAAAAAAAAAAAAAAAFBLAwQKAAAAAACHTuJAAAAAAAAAAAAAAAAABAAAAGRycy9Q&#10;SwMEFAAAAAgAh07iQIwOIBfWAAAACgEAAA8AAABkcnMvZG93bnJldi54bWxNj01PwzAMhu9I/IfI&#10;SNxY2nQbVWk6CSQkxI2tF25Z47UViVM12Tr+PeYEN388ev243l29Exec4xhIQ77KQCB1wY7Ua2gP&#10;rw8liJgMWeMCoYZvjLBrbm9qU9mw0Ade9qkXHEKxMhqGlKZKytgN6E1chQmJd6cwe5O4nXtpZ7Nw&#10;uHdSZdlWejMSXxjMhC8Ddl/7s9fwtn1On9jad1uoIiyt7OaTi1rf3+XZE4iE1/QHw68+q0PDTsdw&#10;JhuF01CU6zWjXOQKBAMbVfLgyOTjRoFsavn/heYHUEsDBBQAAAAIAIdO4kCQdeLcXgIAAMIEAAAO&#10;AAAAZHJzL2Uyb0RvYy54bWytVM1uEzEQviPxDpbvZJM0/YuyqUKrIKSIVgqIs+P1Zi1sj7Gd7IYH&#10;gDfgxIU7z5XnYOzdtGnLoQdycMaeT9/MfDOzk6tGK7IVzkswOR30+pQIw6GQZp3TTx/nby4o8YGZ&#10;gikwIqc74enV9PWrSW3HYggVqEI4giTGj2ub0yoEO84yzyuhme+BFQadJTjNAl7dOiscq5Fdq2zY&#10;759lNbjCOuDCe3y9aZ20Y3QvIYSylFzcAN9oYULL6oRiAUvylbSeTlO2ZSl4uC1LLwJROcVKQzox&#10;CNqreGbTCRuvHbOV5F0K7CUpPKlJM2kw6D3VDQuMbJx8RqUld+ChDD0OOmsLSYpgFYP+E22WFbMi&#10;1YJSe3svuv9/tPzD9s4RWeR0RIlhGhu+//lj/+vP/vd3Mory1NaPEbW0iAvNW2hwaA7vHh9j1U3p&#10;dPzHekj0Xw6H5xco8S6nw8H55cmwE1o0gXAEXA5Goz76OQI6GyNlD0TW+fBOgCbRyKnDPiZ52Xbh&#10;Qws9QGJcD0oWc6lUurj16lo5smXY83n6xXyR/RFMGVLn9OzktJ+YH/ki9z3FSjH+5TkD8imDtFGf&#10;VodohWbVdKKtoNihZg7aofOWzyXyLpgPd8zhlKEAuIfhFo9SASYDnUVJBe7bv94jHpuPXkpqnNqc&#10;+q8b5gQl6r3BsUhi4piny+j0HIUn7tizOvaYjb4GFGmAG295MiM+qINZOtCfcV1nMSq6mOEYO6fh&#10;YF6Hdpdw3bmYzRIIB9uysDBLyyN1bImB2SZAKVProkytNp16ONqpPd0axt05vifUw6dn+hdQSwME&#10;CgAAAAAAh07iQAAAAAAAAAAAAAAAAAYAAABfcmVscy9QSwMEFAAAAAgAh07iQIoUZjzRAAAAlAEA&#10;AAsAAABfcmVscy8ucmVsc6WQwWrDMAyG74O9g9F9cZrDGKNOL6PQa+kewNiKYxpbRjLZ+vbzDoNl&#10;9LajfqHvE//+8JkWtSJLpGxg1/WgMDvyMQcD75fj0wsoqTZ7u1BGAzcUOIyPD/szLra2I5ljEdUo&#10;WQzMtZZXrcXNmKx0VDC3zUScbG0jB12su9qAeuj7Z82/GTBumOrkDfDJD6Aut9LMf9gpOiahqXaO&#10;kqZpiu4eVQe2ZY7uyDbhG7lGsxywGvAsGgdqWdd+BH1fv/un3tNHPuO61X6HjOuPV2+6HL8AUEsD&#10;BBQAAAAIAIdO4kB+5uUg9wAAAOEBAAATAAAAW0NvbnRlbnRfVHlwZXNdLnhtbJWRQU7DMBBF90jc&#10;wfIWJU67QAgl6YK0S0CoHGBkTxKLZGx5TGhvj5O2G0SRWNoz/78nu9wcxkFMGNg6quQqL6RA0s5Y&#10;6ir5vt9lD1JwBDIwOMJKHpHlpr69KfdHjyxSmriSfYz+USnWPY7AufNIadK6MEJMx9ApD/oDOlTr&#10;orhX2lFEilmcO2RdNtjC5xDF9pCuTyYBB5bi6bQ4syoJ3g9WQ0ymaiLzg5KdCXlKLjvcW893SUOq&#10;Xwnz5DrgnHtJTxOsQfEKIT7DmDSUCayM+6KAU/53yWw5cuba1mrMm8BNir3hdLG61o5r1zj93/Lt&#10;krp0q+WD6m9QSwECFAAUAAAACACHTuJAfublIPcAAADhAQAAEwAAAAAAAAABACAAAADjBAAAW0Nv&#10;bnRlbnRfVHlwZXNdLnhtbFBLAQIUAAoAAAAAAIdO4kAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAEAAA&#10;AMUDAABfcmVscy9QSwECFAAUAAAACACHTuJAihRmPNEAAACUAQAACwAAAAAAAAABACAAAADpAwAA&#10;X3JlbHMvLnJlbHNQSwECFAAKAAAAAACHTuJAAAAAAAAAAAAAAAAABAAAAAAAAAAAABAAAAAWAAAA&#10;ZHJzL1BLAQIUABQAAAAIAIdO4kCMDiAX1gAAAAoBAAAPAAAAAAAAAAEAIAAAADgAAABkcnMvZG93&#10;bnJldi54bWxQSwECFAAUAAAACACHTuJAkHXi3F4CAADCBAAADgAAAAAAAAABACAAAAA7AQAAZHJz&#10;L2Uyb0RvYy54bWxQSwUGAAAAAAYABgBZAQAACwYAAAAA&#10;">
+                                <v:fill on="t" focussize="0,0"/>
+                                <v:stroke weight="0.5pt" color="#000000 [3204]" joinstyle="round"/>
+                                <v:imagedata o:title=""/>
+                                <o:lock v:ext="edit" aspectratio="f"/>
+                                <v:textbox>
+                                    <w:txbxContent>
+                                        <w:p>
+                                            <w:pPr>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="eastAsia"/>
+                                                    <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+                                                </w:rPr>
+                                            </w:pPr>
+                                            <w:r>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="eastAsia"/>
+                                                    <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+                                                </w:rPr>
+                                                <w:t>我是一个文本框</w:t>
+                                            </w:r>
+                                        </w:p>
+                                        <w:p>
+                                            <w:pPr>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="default"/>
+                                                    <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+                                                </w:rPr>
+                                            </w:pPr>
+                                            <w:r>
+                                                <w:rPr>
+                                                    <w:rFonts w:hint="eastAsia"/>
+                                                    <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+                                                </w:rPr>
+                                                <w:t>我是文本框的第二段</w:t>
+                                            </w:r>
+                                        </w:p>
+                                    </w:txbxContent>
+                                </v:textbox>
+                            </v:shape>
+                        </w:pict>
+                    </mc:Fallback>
+                </mc:AlternateContent>
+            </w:r>
+            <w:r>
+                <w:rPr>
+                    <w:rStyle w:val="13"/>
+                    <w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+                    <w:color w:val="0000FF"/>
+                    <w:sz w:val="21"/>
+                    <w:szCs w:val="21"/>
+                    <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+                </w:rPr>
+                <w:footnoteReference w:id="0"/>
+            </w:r>
+            <w:r>
+                <w:rPr>
+                    <w:rStyle w:val="13"/>
+                    <w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+                    <w:color w:val="0000FF"/>
+                    <w:sz w:val="21"/>
+                    <w:szCs w:val="21"/>
+                    <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+                </w:rPr>
+                <w:footnoteReference w:id="1"/>
+            </w:r>
+            <w:commentRangeStart w:id="0"/>
+            <w:commentRangeStart w:id="1"/>
+            <w:commentRangeStart w:id="2"/>
+            <w:commentRangeEnd w:id="0"/>
+            <w:r>
+                <w:commentReference w:id="0"/>
+            </w:r>
+            <w:commentRangeEnd w:id="1"/>
+            <w:r>
+                <w:commentReference w:id="1"/>
+            </w:r>
+            <w:commentRangeEnd w:id="2"/>
+            <w:r>
+                <w:commentReference w:id="2"/>
+            </w:r>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+                    <w:color w:val="333333"/>
+                    <w:sz w:val="21"/>
+                    <w:szCs w:val="21"/>
+                    <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+                </w:rPr>
+                <w:t>【图书《计算机科学技术》是清华大学出版社发行？】</w:t>
+            </w:r>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:hint="eastAsia"/>
+                    <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+                </w:rPr>
+                <w:t>【我是第二行的第二句话。】</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:rPr>
+                    <w:rFonts w:hint="eastAsia" w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+                    <w:color w:val="333333"/>
+                    <w:sz w:val="21"/>
+                    <w:szCs w:val="21"/>
+                    <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+                </w:rPr>
+            </w:pPr>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+                    <w:color w:val="333333"/>
+                    <w:sz w:val="21"/>
+                    <w:szCs w:val="21"/>
+                    <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+                </w:rPr>
+                <w:t>大学教授</w:t>
+            </w:r>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:hint="eastAsia" w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+                    <w:color w:val="333333"/>
+                    <w:sz w:val="21"/>
+                    <w:szCs w:val="21"/>
+                    <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+                </w:rPr>
+                <w:t xml:space="preserve"> 刘强</w:t>
+            </w:r>
+            <w:r>
+                <w:rPr>
+                    <w:rStyle w:val="10"/>
+                    <w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+                    <w:color w:val="0000FF"/>
+                    <w:sz w:val="24"/>
+                    <w:szCs w:val="24"/>
+                    <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+                </w:rPr>
+                <w:endnoteReference w:id="0"/>
+            </w:r>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:hint="eastAsia" w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+                    <w:color w:val="333333"/>
+                    <w:sz w:val="21"/>
+                    <w:szCs w:val="21"/>
+                    <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+                </w:rPr>
+                <w:t>、徐萌</w:t>
+            </w:r>
+            <w:r>
+                <w:rPr>
+                    <w:rStyle w:val="10"/>
+                    <w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+                    <w:color w:val="0000FF"/>
+                    <w:sz w:val="28"/>
+                    <w:szCs w:val="28"/>
+                    <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+                </w:rPr>
+                <w:endnoteReference w:id="1"/>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:rPr>
+                    <w:rFonts w:hint="default" w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"
+                              w:eastAsiaTheme="minorEastAsia"/>
+                    <w:color w:val="333333"/>
+                    <w:sz w:val="21"/>
+                    <w:szCs w:val="21"/>
+                    <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+                    <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+                </w:rPr>
+            </w:pPr>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:hint="eastAsia" w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+                    <w:color w:val="333333"/>
+                    <w:sz w:val="21"/>
+                    <w:szCs w:val="21"/>
+                    <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+                    <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+                </w:rPr>
+                <w:t>我，是一句话。我,是第二句？请拆1句。</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:pPr>
+                <w:rPr>
+                    <w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+                    <w:color w:val="333333"/>
+                    <w:sz w:val="21"/>
+                    <w:szCs w:val="21"/>
+                    <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+                </w:rPr>
+            </w:pPr>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:hint="eastAsia" w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+                    <w:color w:val="333333"/>
+                    <w:sz w:val="21"/>
+                    <w:szCs w:val="21"/>
+                    <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+                </w:rPr>
+                <w:t>1</w:t>
+            </w:r>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+                    <w:color w:val="333333"/>
+                    <w:sz w:val="21"/>
+                    <w:szCs w:val="21"/>
+                    <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+                </w:rPr>
+                <w:t>立方</w:t>
+            </w:r>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:hint="eastAsia" w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+                    <w:color w:val="333333"/>
+                    <w:sz w:val="21"/>
+                    <w:szCs w:val="21"/>
+                    <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+                </w:rPr>
+                <w:t xml:space="preserve"> m</w:t>
+            </w:r>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:hint="eastAsia" w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+                    <w:color w:val="0000FF"/>
+                    <w:sz w:val="21"/>
+                    <w:szCs w:val="21"/>
+                    <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+                </w:rPr>
+                <w:t>³</w:t>
+            </w:r>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:hint="eastAsia" w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+                    <w:color w:val="333333"/>
+                    <w:sz w:val="21"/>
+                    <w:szCs w:val="21"/>
+                    <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+                </w:rPr>
+                <w:t>水的重量</w:t>
+            </w:r>
+            <w:r>
+                <w:rPr>
+                    <w:rStyle w:val="13"/>
+                    <w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+                    <w:color w:val="0000FF"/>
+                    <w:sz w:val="21"/>
+                    <w:szCs w:val="21"/>
+                    <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+                </w:rPr>
+                <w:footnoteReference w:id="2"/>
+            </w:r>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:hint="eastAsia" w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+                    <w:color w:val="333333"/>
+                    <w:sz w:val="21"/>
+                    <w:szCs w:val="21"/>
+                    <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+                </w:rPr>
+                <w:t>为1吨</w:t>
+            </w:r>
+            <w:r>
+                <w:rPr>
+                    <w:rStyle w:val="10"/>
+                    <w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>
+                    <w:color w:val="0000FF"/>
+                    <w:sz w:val="21"/>
+                    <w:szCs w:val="21"/>
+                    <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
+                </w:rPr>
+                <w:endnoteReference w:id="2"/>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:hint="eastAsia"/>
+                </w:rPr>
+                <w:t xml:space="preserve">数学公式为 </w:t>
+            </w:r>
+            <m:oMath>
+                <m:func>
+                    <m:funcPr>
+                        <m:ctrlPr>
+                            <w:rPr>
+                                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math" w:eastAsia="Cambria Math"/>
+                            </w:rPr>
+                        </m:ctrlPr>
+                    </m:funcPr>
+                    <m:fName>
+                        <m:r>
+                            <m:rPr>
+                                <m:sty m:val="p"/>
+                            </m:rPr>
+                            <w:rPr>
+                                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math" w:eastAsia="Cambria Math"/>
+                            </w:rPr>
+                            <m:t>cos</m:t>
+                        </m:r>
+                        <m:ctrlPr>
+                            <w:rPr>
+                                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math" w:eastAsia="Cambria Math"/>
+                            </w:rPr>
+                        </m:ctrlPr>
+                    </m:fName>
+                    <m:e>
+                        <m:r>
+                            <m:rPr/>
+                            <w:rPr>
+                                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+                            </w:rPr>
+                            <m:t>α</m:t>
+                        </m:r>
+                        <m:ctrlPr>
+                            <w:rPr>
+                                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math" w:eastAsia="Cambria Math"/>
+                            </w:rPr>
+                        </m:ctrlPr>
+                    </m:e>
+                </m:func>
+                <m:r>
+                    <m:rPr/>
+                    <w:rPr>
+                        <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+                    </w:rPr>
+                    <m:t>+</m:t>
+                </m:r>
+                <m:func>
+                    <m:funcPr>
+                        <m:ctrlPr>
+                            <w:rPr>
+                                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math" w:eastAsia="Cambria Math"/>
+                            </w:rPr>
+                        </m:ctrlPr>
+                    </m:funcPr>
+                    <m:fName>
+                        <m:r>
+                            <m:rPr>
+                                <m:sty m:val="p"/>
+                            </m:rPr>
+                            <w:rPr>
+                                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+                            </w:rPr>
+                            <m:t>cos</m:t>
+                        </m:r>
+                        <m:ctrlPr>
+                            <w:rPr>
+                                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math" w:eastAsia="Cambria Math"/>
+                            </w:rPr>
+                        </m:ctrlPr>
+                    </m:fName>
+                    <m:e>
+                        <m:r>
+                            <m:rPr/>
+                            <w:rPr>
+                                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+                            </w:rPr>
+                            <m:t>β</m:t>
+                        </m:r>
+                        <m:ctrlPr>
+                            <w:rPr>
+                                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math" w:eastAsia="Cambria Math"/>
+                            </w:rPr>
+                        </m:ctrlPr>
+                    </m:e>
+                </m:func>
+                <m:r>
+                    <m:rPr/>
+                    <w:rPr>
+                        <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+                    </w:rPr>
+                    <m:t>=2</m:t>
+                </m:r>
+                <m:func>
+                    <m:funcPr>
+                        <m:ctrlPr>
+                            <w:rPr>
+                                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math" w:eastAsia="Cambria Math"/>
+                            </w:rPr>
+                        </m:ctrlPr>
+                    </m:funcPr>
+                    <m:fName>
+                        <m:r>
+                            <m:rPr>
+                                <m:sty m:val="p"/>
+                            </m:rPr>
+                            <w:rPr>
+                                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+                            </w:rPr>
+                            <m:t>cos</m:t>
+                        </m:r>
+                        <m:ctrlPr>
+                            <w:rPr>
+                                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math" w:eastAsia="Cambria Math"/>
+                            </w:rPr>
+                        </m:ctrlPr>
+                    </m:fName>
+                    <m:e>
+                        <m:f>
+                            <m:fPr>
+                                <m:ctrlPr>
+                                    <w:rPr>
+                                        <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"
+                                                  w:eastAsia="Cambria Math"/>
+                                    </w:rPr>
+                                </m:ctrlPr>
+                            </m:fPr>
+                            <m:num>
+                                <m:r>
+                                    <m:rPr/>
+                                    <w:rPr>
+                                        <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+                                    </w:rPr>
+                                    <m:t>1</m:t>
+                                </m:r>
+                                <m:ctrlPr>
+                                    <w:rPr>
+                                        <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"
+                                                  w:eastAsia="Cambria Math"/>
+                                    </w:rPr>
+                                </m:ctrlPr>
+                            </m:num>
+                            <m:den>
+                                <m:r>
+                                    <m:rPr/>
+                                    <w:rPr>
+                                        <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+                                    </w:rPr>
+                                    <m:t>2</m:t>
+                                </m:r>
+                                <m:ctrlPr>
+                                    <w:rPr>
+                                        <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"
+                                                  w:eastAsia="Cambria Math"/>
+                                    </w:rPr>
+                                </m:ctrlPr>
+                            </m:den>
+                        </m:f>
+                        <m:d>
+                            <m:dPr>
+                                <m:ctrlPr>
+                                    <w:rPr>
+                                        <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"
+                                                  w:eastAsia="Cambria Math"/>
+                                    </w:rPr>
+                                </m:ctrlPr>
+                            </m:dPr>
+                            <m:e>
+                                <m:r>
+                                    <m:rPr/>
+                                    <w:rPr>
+                                        <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+                                    </w:rPr>
+                                    <m:t>α+β</m:t>
+                                </m:r>
+                                <m:ctrlPr>
+                                    <w:rPr>
+                                        <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"
+                                                  w:eastAsia="Cambria Math"/>
+                                    </w:rPr>
+                                </m:ctrlPr>
+                            </m:e>
+                        </m:d>
+                        <m:ctrlPr>
+                            <w:rPr>
+                                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math" w:eastAsia="Cambria Math"/>
+                            </w:rPr>
+                        </m:ctrlPr>
+                    </m:e>
+                </m:func>
+                <m:func>
+                    <m:funcPr>
+                        <m:ctrlPr>
+                            <w:rPr>
+                                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math" w:eastAsia="Cambria Math"/>
+                            </w:rPr>
+                        </m:ctrlPr>
+                    </m:funcPr>
+                    <m:fName>
+                        <m:r>
+                            <m:rPr>
+                                <m:sty m:val="p"/>
+                            </m:rPr>
+                            <w:rPr>
+                                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+                            </w:rPr>
+                            <m:t>cos</m:t>
+                        </m:r>
+                        <m:ctrlPr>
+                            <w:rPr>
+                                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math" w:eastAsia="Cambria Math"/>
+                            </w:rPr>
+                        </m:ctrlPr>
+                    </m:fName>
+                    <m:e>
+                        <m:f>
+                            <m:fPr>
+                                <m:ctrlPr>
+                                    <w:rPr>
+                                        <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"
+                                                  w:eastAsia="Cambria Math"/>
+                                    </w:rPr>
+                                </m:ctrlPr>
+                            </m:fPr>
+                            <m:num>
+                                <m:r>
+                                    <m:rPr/>
+                                    <w:rPr>
+                                        <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+                                    </w:rPr>
+                                    <m:t>1</m:t>
+                                </m:r>
+                                <m:ctrlPr>
+                                    <w:rPr>
+                                        <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"
+                                                  w:eastAsia="Cambria Math"/>
+                                    </w:rPr>
+                                </m:ctrlPr>
+                            </m:num>
+                            <m:den>
+                                <m:r>
+                                    <m:rPr/>
+                                    <w:rPr>
+                                        <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+                                    </w:rPr>
+                                    <m:t>2</m:t>
+                                </m:r>
+                                <m:ctrlPr>
+                                    <w:rPr>
+                                        <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"
+                                                  w:eastAsia="Cambria Math"/>
+                                    </w:rPr>
+                                </m:ctrlPr>
+                            </m:den>
+                        </m:f>
+                        <m:d>
+                            <m:dPr>
+                                <m:ctrlPr>
+                                    <w:rPr>
+                                        <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"
+                                                  w:eastAsia="Cambria Math"/>
+                                    </w:rPr>
+                                </m:ctrlPr>
+                            </m:dPr>
+                            <m:e>
+                                <m:r>
+                                    <m:rPr/>
+                                    <w:rPr>
+                                        <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"/>
+                                    </w:rPr>
+                                    <m:t>α−β</m:t>
+                                </m:r>
+                                <m:ctrlPr>
+                                    <w:rPr>
+                                        <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"
+                                                  w:eastAsia="Cambria Math"/>
+                                    </w:rPr>
+                                </m:ctrlPr>
+                            </m:e>
+                        </m:d>
+                        <m:ctrlPr>
+                            <w:rPr>
+                                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math" w:eastAsia="Cambria Math"/>
+                            </w:rPr>
+                        </m:ctrlPr>
+                    </m:e>
+                </m:func>
+            </m:oMath>
+            <w:r>
+                <w:t>，和</w:t>
+            </w:r>
+            <m:oMath>
+                <m:r>
+                    <m:rPr/>
+                    <w:rPr>
+                        <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math" w:eastAsia="Cambria Math"
+                                  w:cs="Cambria Math"/>
+                    </w:rPr>
+                    <m:t>x</m:t>
+                </m:r>
+                <m:r>
+                    <m:rPr>
+                        <m:sty m:val="p"/>
+                    </m:rPr>
+                    <w:rPr>
+                        <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math" w:eastAsia="Cambria Math"
+                                  w:cs="Cambria Math"/>
+                    </w:rPr>
+                    <m:t>=</m:t>
+                </m:r>
+                <m:f>
+                    <m:fPr>
+                        <m:ctrlPr>
+                            <w:rPr>
+                                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math" w:eastAsia="Cambria Math"/>
+                            </w:rPr>
+                        </m:ctrlPr>
+                    </m:fPr>
+                    <m:num>
+                        <m:r>
+                            <m:rPr>
+                                <m:sty m:val="p"/>
+                            </m:rPr>
+                            <w:rPr>
+                                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math" w:eastAsia="Cambria Math"
+                                          w:cs="Cambria Math"/>
+                            </w:rPr>
+                            <m:t>−</m:t>
+                        </m:r>
+                        <m:r>
+                            <m:rPr/>
+                            <w:rPr>
+                                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math" w:eastAsia="Cambria Math"
+                                          w:cs="Cambria Math"/>
+                            </w:rPr>
+                            <m:t>b</m:t>
+                        </m:r>
+                        <m:r>
+                            <m:rPr>
+                                <m:sty m:val="p"/>
+                            </m:rPr>
+                            <w:rPr>
+                                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math" w:eastAsia="Cambria Math"
+                                          w:cs="Cambria Math"/>
+                            </w:rPr>
+                            <m:t>±</m:t>
+                        </m:r>
+                        <m:rad>
+                            <m:radPr>
+                                <m:degHide m:val="1"/>
+                                <m:ctrlPr>
+                                    <w:rPr>
+                                        <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"
+                                                  w:eastAsia="Cambria Math"/>
+                                    </w:rPr>
+                                </m:ctrlPr>
+                            </m:radPr>
+                            <m:deg>
+                                <m:ctrlPr>
+                                    <w:rPr>
+                                        <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"
+                                                  w:eastAsia="Cambria Math"/>
+                                    </w:rPr>
+                                </m:ctrlPr>
+                            </m:deg>
+                            <m:e>
+                                <m:sSup>
+                                    <m:sSupPr>
+                                        <m:ctrlPr>
+                                            <w:rPr>
+                                                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"
+                                                          w:eastAsia="Cambria Math"/>
+                                            </w:rPr>
+                                        </m:ctrlPr>
+                                    </m:sSupPr>
+                                    <m:e>
+                                        <m:r>
+                                            <m:rPr/>
+                                            <w:rPr>
+                                                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"
+                                                          w:eastAsia="Cambria Math" w:cs="Cambria Math"/>
+                                            </w:rPr>
+                                            <m:t>b</m:t>
+                                        </m:r>
+                                        <m:ctrlPr>
+                                            <w:rPr>
+                                                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"
+                                                          w:eastAsia="Cambria Math"/>
+                                            </w:rPr>
+                                        </m:ctrlPr>
+                                    </m:e>
+                                    <m:sup>
+                                        <m:r>
+                                            <m:rPr>
+                                                <m:sty m:val="p"/>
+                                            </m:rPr>
+                                            <w:rPr>
+                                                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"
+                                                          w:eastAsia="Cambria Math" w:cs="Cambria Math"/>
+                                            </w:rPr>
+                                            <m:t>2</m:t>
+                                        </m:r>
+                                        <m:ctrlPr>
+                                            <w:rPr>
+                                                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"
+                                                          w:eastAsia="Cambria Math"/>
+                                            </w:rPr>
+                                        </m:ctrlPr>
+                                    </m:sup>
+                                </m:sSup>
+                                <m:r>
+                                    <m:rPr>
+                                        <m:sty m:val="p"/>
+                                    </m:rPr>
+                                    <w:rPr>
+                                        <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"
+                                                  w:eastAsia="Cambria Math" w:cs="Cambria Math"/>
+                                    </w:rPr>
+                                    <m:t>−4</m:t>
+                                </m:r>
+                                <m:r>
+                                    <m:rPr/>
+                                    <w:rPr>
+                                        <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"
+                                                  w:eastAsia="Cambria Math" w:cs="Cambria Math"/>
+                                    </w:rPr>
+                                    <m:t>ac</m:t>
+                                </m:r>
+                                <m:ctrlPr>
+                                    <w:rPr>
+                                        <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math"
+                                                  w:eastAsia="Cambria Math"/>
+                                    </w:rPr>
+                                </m:ctrlPr>
+                            </m:e>
+                        </m:rad>
+                        <m:ctrlPr>
+                            <w:rPr>
+                                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math" w:eastAsia="Cambria Math"/>
+                            </w:rPr>
+                        </m:ctrlPr>
+                    </m:num>
+                    <m:den>
+                        <m:r>
+                            <m:rPr>
+                                <m:sty m:val="p"/>
+                            </m:rPr>
+                            <w:rPr>
+                                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math" w:eastAsia="Cambria Math"
+                                          w:cs="Cambria Math"/>
+                            </w:rPr>
+                            <m:t>2</m:t>
+                        </m:r>
+                        <m:r>
+                            <m:rPr/>
+                            <w:rPr>
+                                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math" w:eastAsia="Cambria Math"
+                                          w:cs="Cambria Math"/>
+                            </w:rPr>
+                            <m:t>a</m:t>
+                        </m:r>
+                        <m:ctrlPr>
+                            <w:rPr>
+                                <w:rFonts w:ascii="Cambria Math" w:hAnsi="Cambria Math" w:eastAsia="Cambria Math"/>
+                            </w:rPr>
+                        </m:ctrlPr>
+                    </m:den>
+                </m:f>
+            </m:oMath>
+            <w:r>
+                <w:t xml:space="preserve"> </w:t>
+            </w:r>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:hint="eastAsia"/>
+                </w:rPr>
+                <w:t>的</w:t>
+            </w:r>
+            <w:r>
+                <w:t>推倒过程。</w:t>
+            </w:r>
+        </w:p>
+        <w:p>
+            <w:commentRangeStart w:id="3"/>
+            <w:r>
+                <w:t>此图标</w:t>
+            </w:r>
+            <w:r>
+                <w:drawing>
+                    <wp:inline distT="0" distB="0" distL="0" distR="0">
+                        <wp:extent cx="423545" cy="203200"/>
+                        <wp:effectExtent l="19050" t="19050" r="14605" b="25400"/>
+                        <wp:docPr id="1" name="图片 1"/>
+                        <wp:cNvGraphicFramePr>
+                            <a:graphicFrameLocks xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
+                                                 noChangeAspect="1"/>
+                        </wp:cNvGraphicFramePr>
+                        <a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
+                            <a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
+                                <pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">
+                                    <pic:nvPicPr>
+                                        <pic:cNvPr id="1" name="图片 1"/>
+                                        <pic:cNvPicPr>
+                                            <a:picLocks noChangeAspect="1"/>
+                                        </pic:cNvPicPr>
+                                    </pic:nvPicPr>
+                                    <pic:blipFill>
+                                        <a:blip r:embed="rId14"/>
+                                        <a:stretch>
+                                            <a:fillRect/>
+                                        </a:stretch>
+                                    </pic:blipFill>
+                                    <pic:spPr>
+                                        <a:xfrm>
+                                            <a:off x="0" y="0"/>
+                                            <a:ext cx="441979" cy="212215"/>
+                                        </a:xfrm>
+                                        <a:prstGeom prst="rect">
+                                            <a:avLst/>
+                                        </a:prstGeom>
+                                        <a:ln w="3175">
+                                            <a:solidFill>
+                                                <a:schemeClr val="tx1"/>
+                                            </a:solidFill>
+                                        </a:ln>
+                                    </pic:spPr>
+                                </pic:pic>
+                            </a:graphicData>
+                        </a:graphic>
+                    </wp:inline>
+                </w:drawing>
+            </w:r>
+            <w:r>
+                <w:t>需要双击后，</w:t>
+            </w:r>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:hint="eastAsia"/>
+                </w:rPr>
+                <w:t>再</w:t>
+            </w:r>
+            <w:r>
+                <w:t>单击</w:t>
+            </w:r>
+            <w:r>
+                <w:drawing>
+                    <wp:inline distT="0" distB="0" distL="0" distR="0">
+                        <wp:extent cx="511175" cy="181610"/>
+                        <wp:effectExtent l="0" t="0" r="3175" b="8890"/>
+                        <wp:docPr id="2" name="图片 2"/>
+                        <wp:cNvGraphicFramePr>
+                            <a:graphicFrameLocks xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
+                                                 noChangeAspect="1"/>
+                        </wp:cNvGraphicFramePr>
+                        <a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
+                            <a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
+                                <pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">
+                                    <pic:nvPicPr>
+                                        <pic:cNvPr id="2" name="图片 2"/>
+                                        <pic:cNvPicPr>
+                                            <a:picLocks noChangeAspect="1" noChangeArrowheads="1"/>
+                                        </pic:cNvPicPr>
+                                    </pic:nvPicPr>
+                                    <pic:blipFill>
+                                        <a:blip r:embed="rId15">
+                                            <a:extLst>
+                                                <a:ext uri="{28A0092B-C50C-407E-A947-70E740481C1C}">
+                                                    <a14:useLocalDpi
+                                                            xmlns:a14="http://schemas.microsoft.com/office/drawing/2010/main"
+                                                            val="0"/>
+                                                </a:ext>
+                                            </a:extLst>
+                                        </a:blip>
+                                        <a:srcRect/>
+                                        <a:stretch>
+                                            <a:fillRect/>
+                                        </a:stretch>
+                                    </pic:blipFill>
+                                    <pic:spPr>
+                                        <a:xfrm>
+                                            <a:off x="0" y="0"/>
+                                            <a:ext cx="511175" cy="181610"/>
+                                        </a:xfrm>
+                                        <a:prstGeom prst="rect">
+                                            <a:avLst/>
+                                        </a:prstGeom>
+                                        <a:noFill/>
+                                        <a:ln>
+                                            <a:noFill/>
+                                        </a:ln>
+                                    </pic:spPr>
+                                </pic:pic>
+                            </a:graphicData>
+                        </a:graphic>
+                    </wp:inline>
+                </w:drawing>
+            </w:r>
+            <w:r>
+                <w:t>按钮后生效。</w:t>
+            </w:r>
+            <w:commentRangeEnd w:id="3"/>
+            <w:r>
+                <w:commentReference w:id="3"/>
+            </w:r>
+        </w:p>
+        <w:p/>
+        <w:tbl>
+            <w:tblPr>
+                <w:tblStyle w:val="8"/>
+                <w:tblW w:w="0" w:type="auto"/>
+                <w:tblInd w:w="0" w:type="dxa"/>
+                <w:tblBorders>
+                    <w:top w:val="single" w:color="auto" w:sz="4" w:space="0"/>
+                    <w:left w:val="single" w:color="auto" w:sz="4" w:space="0"/>
+                    <w:bottom w:val="single" w:color="auto" w:sz="4" w:space="0"/>
+                    <w:right w:val="single" w:color="auto" w:sz="4" w:space="0"/>
+                    <w:insideH w:val="single" w:color="auto" w:sz="4" w:space="0"/>
+                    <w:insideV w:val="single" w:color="auto" w:sz="4" w:space="0"/>
+                </w:tblBorders>
+                <w:tblLayout w:type="autofit"/>
+                <w:tblCellMar>
+                    <w:top w:w="0" w:type="dxa"/>
+                    <w:left w:w="108" w:type="dxa"/>
+                    <w:bottom w:w="0" w:type="dxa"/>
+                    <w:right w:w="108" w:type="dxa"/>
+                </w:tblCellMar>
+            </w:tblPr>
+            <w:tblGrid>
+                <w:gridCol w:w="1771"/>
+                <w:gridCol w:w="1771"/>
+                <w:gridCol w:w="1771"/>
+                <w:gridCol w:w="1771"/>
+                <w:gridCol w:w="1772"/>
+            </w:tblGrid>
+            <w:tr>
+                <w:tc>
+                    <w:tcPr>
+                        <w:tcW w:w="1771" w:type="dxa"/>
+                        <w:vMerge w:val="restart"/>
+                    </w:tcPr>
+                    <w:p>
+                        <w:pPr>
+                            <w:widowControl w:val="0"/>
+                            <w:jc w:val="both"/>
+                            <w:rPr>
+                                <w:rFonts w:hint="default" w:eastAsiaTheme="minorEastAsia"/>
+                                <w:vertAlign w:val="baseline"/>
+                                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+                            </w:rPr>
+                        </w:pPr>
+                        <w:r>
+                            <w:rPr>
+                                <w:rFonts w:hint="eastAsia"/>
+                                <w:vertAlign w:val="baseline"/>
+                                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+                            </w:rPr>
+                            <w:t>列</w:t>
+                        </w:r>
+                        <w:r>
+                            <w:rPr>
+                                <w:rFonts w:hint="eastAsia"/>
+                                <w:highlight w:val="yellow"/>
+                                <w:vertAlign w:val="baseline"/>
+                                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+                            </w:rPr>
+                            <w:t>合并</w:t>
+                        </w:r>
+                    </w:p>
+                </w:tc>
+                <w:tc>
+                    <w:tcPr>
+                        <w:tcW w:w="1771" w:type="dxa"/>
+                    </w:tcPr>
+                    <w:p>
+                        <w:pPr>
+                            <w:widowControl w:val="0"/>
+                            <w:jc w:val="both"/>
+                            <w:rPr>
+                                <w:vertAlign w:val="baseline"/>
+                            </w:rPr>
+                        </w:pPr>
+                    </w:p>
+                </w:tc>
+                <w:tc>
+                    <w:tcPr>
+                        <w:tcW w:w="1771" w:type="dxa"/>
+                    </w:tcPr>
+                    <w:p>
+                        <w:pPr>
+                            <w:widowControl w:val="0"/>
+                            <w:jc w:val="both"/>
+                            <w:rPr>
+                                <w:vertAlign w:val="baseline"/>
+                            </w:rPr>
+                        </w:pPr>
+                    </w:p>
+                </w:tc>
+                <w:tc>
+                    <w:tcPr>
+                        <w:tcW w:w="1771" w:type="dxa"/>
+                    </w:tcPr>
+                    <w:p>
+                        <w:pPr>
+                            <w:widowControl w:val="0"/>
+                            <w:jc w:val="both"/>
+                            <w:rPr>
+                                <w:vertAlign w:val="baseline"/>
+                            </w:rPr>
+                        </w:pPr>
+                    </w:p>
+                </w:tc>
+                <w:tc>
+                    <w:tcPr>
+                        <w:tcW w:w="1772" w:type="dxa"/>
+                    </w:tcPr>
+                    <w:p>
+                        <w:pPr>
+                            <w:widowControl w:val="0"/>
+                            <w:jc w:val="both"/>
+                            <w:rPr>
+                                <w:vertAlign w:val="baseline"/>
+                            </w:rPr>
+                        </w:pPr>
+                    </w:p>
+                </w:tc>
+            </w:tr>
+            <w:tr>
+                <w:tc>
+                    <w:tcPr>
+                        <w:tcW w:w="1771" w:type="dxa"/>
+                        <w:vMerge w:val="continue"/>
+                    </w:tcPr>
+                    <w:p>
+                        <w:pPr>
+                            <w:widowControl w:val="0"/>
+                            <w:jc w:val="both"/>
+                            <w:rPr>
+                                <w:vertAlign w:val="baseline"/>
+                            </w:rPr>
+                        </w:pPr>
+                    </w:p>
+                </w:tc>
+                <w:tc>
+                    <w:tcPr>
+                        <w:tcW w:w="1771" w:type="dxa"/>
+                    </w:tcPr>
+                    <w:p>
+                        <w:pPr>
+                            <w:widowControl w:val="0"/>
+                            <w:jc w:val="both"/>
+                            <w:rPr>
+                                <w:vertAlign w:val="baseline"/>
+                            </w:rPr>
+                        </w:pPr>
+                    </w:p>
+                </w:tc>
+                <w:tc>
+                    <w:tcPr>
+                        <w:tcW w:w="1771" w:type="dxa"/>
+                    </w:tcPr>
+                    <w:p>
+                        <w:pPr>
+                            <w:widowControl w:val="0"/>
+                            <w:jc w:val="both"/>
+                            <w:rPr>
+                                <w:vertAlign w:val="baseline"/>
+                            </w:rPr>
+                        </w:pPr>
+                    </w:p>
+                </w:tc>
+                <w:tc>
+                    <w:tcPr>
+                        <w:tcW w:w="1771" w:type="dxa"/>
+                    </w:tcPr>
+                    <w:p>
+                        <w:pPr>
+                            <w:widowControl w:val="0"/>
+                            <w:jc w:val="both"/>
+                            <w:rPr>
+                                <w:vertAlign w:val="baseline"/>
+                            </w:rPr>
+                        </w:pPr>
+                    </w:p>
+                </w:tc>
+                <w:tc>
+                    <w:tcPr>
+                        <w:tcW w:w="1772" w:type="dxa"/>
+                    </w:tcPr>
+                    <w:p>
+                        <w:pPr>
+                            <w:widowControl w:val="0"/>
+                            <w:jc w:val="both"/>
+                            <w:rPr>
+                                <w:vertAlign w:val="baseline"/>
+                            </w:rPr>
+                        </w:pPr>
+                    </w:p>
+                </w:tc>
+            </w:tr>
+            <w:tr>
+                <w:tc>
+                    <w:tcPr>
+                        <w:tcW w:w="1771" w:type="dxa"/>
+                        <w:vMerge w:val="continue"/>
+                    </w:tcPr>
+                    <w:p>
+                        <w:pPr>
+                            <w:widowControl w:val="0"/>
+                            <w:jc w:val="both"/>
+                            <w:rPr>
+                                <w:vertAlign w:val="baseline"/>
+                            </w:rPr>
+                        </w:pPr>
+                    </w:p>
+                </w:tc>
+                <w:tc>
+                    <w:tcPr>
+                        <w:tcW w:w="3542" w:type="dxa"/>
+                        <w:gridSpan w:val="2"/>
+                    </w:tcPr>
+                    <w:p>
+                        <w:pPr>
+                            <w:widowControl w:val="0"/>
+                            <w:jc w:val="both"/>
+                            <w:rPr>
+                                <w:rFonts w:hint="default" w:eastAsiaTheme="minorEastAsia"/>
+                                <w:vertAlign w:val="baseline"/>
+                                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+                            </w:rPr>
+                        </w:pPr>
+                        <w:r>
+                            <w:rPr>
+                                <w:rFonts w:hint="eastAsia"/>
+                                <w:vertAlign w:val="baseline"/>
+                                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+                            </w:rPr>
+                            <w:t>行</w:t>
+                        </w:r>
+                        <w:r>
+                            <w:rPr>
+                                <w:rFonts w:hint="eastAsia"/>
+                                <w:color w:val="FF0000"/>
+                                <w:highlight w:val="yellow"/>
+                                <w:vertAlign w:val="baseline"/>
+                                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+                            </w:rPr>
+                            <w:t>合并</w:t>
+                        </w:r>
+                    </w:p>
+                </w:tc>
+                <w:tc>
+                    <w:tcPr>
+                        <w:tcW w:w="1771" w:type="dxa"/>
+                    </w:tcPr>
+                    <w:p>
+                        <w:pPr>
+                            <w:widowControl w:val="0"/>
+                            <w:jc w:val="both"/>
+                            <w:rPr>
+                                <w:vertAlign w:val="baseline"/>
+                            </w:rPr>
+                        </w:pPr>
+                    </w:p>
+                </w:tc>
+                <w:tc>
+                    <w:tcPr>
+                        <w:tcW w:w="1772" w:type="dxa"/>
+                    </w:tcPr>
+                    <w:p>
+                        <w:pPr>
+                            <w:widowControl w:val="0"/>
+                            <w:jc w:val="both"/>
+                            <w:rPr>
+                                <w:vertAlign w:val="baseline"/>
+                            </w:rPr>
+                        </w:pPr>
+                    </w:p>
+                </w:tc>
+            </w:tr>
+        </w:tbl>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p/>
+        <w:p>
+            <w:r>
+                <w:t>用户点击</w:t>
+            </w:r>
+            <w:r>
+                <w:fldChar w:fldCharType="begin"/>
+            </w:r>
+            <w:r>
+                <w:instrText xml:space="preserve"> HYPERLINK \l "文档内连接" </w:instrText>
+            </w:r>
+            <w:r>
+                <w:fldChar w:fldCharType="separate"/>
+            </w:r>
+            <w:r>
+                <w:rPr>
+                    <w:rStyle w:val="11"/>
+                </w:rPr>
+                <w:t>文档内连接</w:t>
+            </w:r>
+            <w:r>
+                <w:rPr>
+                    <w:rStyle w:val="12"/>
+                </w:rPr>
+                <w:fldChar w:fldCharType="end"/>
+            </w:r>
+            <w:r>
+                <w:t>，在点击</w:t>
+            </w:r>
+            <w:r>
+                <w:fldChar w:fldCharType="begin"/>
+            </w:r>
+            <w:r>
+                <w:instrText xml:space="preserve"> HYPERLINK "file:///C:\\Users\\Administrator\\Desktop\\角标和交叉引用排版-双语.docx" </w:instrText>
+            </w:r>
+            <w:r>
+                <w:fldChar w:fldCharType="separate"/>
+            </w:r>
+            <w:r>
+                <w:rPr>
+                    <w:rStyle w:val="11"/>
+                </w:rPr>
+                <w:t>文档外连接</w:t>
+            </w:r>
+            <w:r>
+                <w:rPr>
+                    <w:rStyle w:val="12"/>
+                </w:rPr>
+                <w:fldChar w:fldCharType="end"/>
+            </w:r>
+            <w:r>
+                <w:t>。</w:t>
+            </w:r>
+        </w:p>
+        <w:sectPr>
+            <w:headerReference r:id="rId9" w:type="first"/>
+            <w:footerReference r:id="rId12" w:type="first"/>
+            <w:headerReference r:id="rId7" w:type="default"/>
+            <w:footerReference r:id="rId10" w:type="default"/>
+            <w:headerReference r:id="rId8" w:type="even"/>
+            <w:footerReference r:id="rId11" w:type="even"/>
+            <w:pgSz w:w="12240" w:h="15840"/>
+            <w:pgMar w:top="1440" w:right="1800" w:bottom="1440" w:left="1800" w:header="708" w:footer="708"
+                     w:gutter="0"/>
+            <w:pgNumType w:fmt="decimal"/>
+            <w:cols w:space="708" w:num="1"/>
+            <w:titlePg/>
+            <w:docGrid w:linePitch="360" w:charSpace="0"/>
+        </w:sectPr>
+    </w:body>
+</w:document>

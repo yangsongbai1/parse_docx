@@ -1,10 +1,17 @@
+import copy
+
 from lxml import etree
 
 a = etree.parse("test.xml")
 
-dd = a.xpath("preceding-sibling::a[1]")
-print(dd)
-for i in dd:
-    x = etree.tostring(i, encoding="utf-8", pretty_print=True, xml_declaration=False).decode()
-    print(x)
-    print('----------------')
+pp = a.xpath(".//w:p", namespaces=a.getroot().nsmap)
+for p in pp:
+    if p.xpath(".//w:p", namespaces=a.getroot().nsmap):
+        print(p.xpath(".//text()", namespaces=a.getroot().nsmap))
+        p_parent = p.getparent()
+        b_index = p_parent.index(p)
+        copy_b = copy.deepcopy(p)
+        copy_b.text = "我是哈哈"
+        p_parent[b_index] = copy_b
+
+# print(etree.tostring(a, encoding="utf-8").decode("utf-8"))

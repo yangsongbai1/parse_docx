@@ -1,0 +1,47 @@
+<w:txbxContent xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+               xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
+               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"
+               xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape"
+               xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+    <w:p>
+        <w:pPr>
+            <w:rPr>
+                <w:rFonts w:hint="eastAsia"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+            </w:rPr>
+        </w:pPr>
+        <w:r xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas"
+             xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"
+             xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"
+             xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing"
+             xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml"
+             xmlns:w10="urn:schemas-microsoft-com:office:word"
+             xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml"
+             xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup"
+             xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk"
+             xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml"
+             xmlns:wpsCustomData="http://www.wps.cn/officeDocument/2013/wpsCustomData">
+            <w:rPr>
+                <w:rFonts w:hint="eastAsia"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+            </w:rPr>
+            <w:t>【我是一个文本框】</w:t>
+        </w:r>
+    </w:p>
+    <w:p>
+        <w:pPr>
+            <w:rPr>
+                <w:rFonts w:hint="default"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+            </w:rPr>
+        </w:pPr>
+        <w:r>
+            <w:rPr>
+                <w:rFonts w:hint="eastAsia"/>
+                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+            </w:rPr>
+            <w:t>我是文本框的第二段</w:t>
+        </w:r>
+    </w:p>
+</w:txbxContent>
