@@ -4,14 +4,15 @@ from lxml import etree
 
 a = etree.parse("test.xml")
 
-pp = a.xpath(".//w:p", namespaces=a.getroot().nsmap)
+pp = a.xpath(".//p", namespaces=a.getroot().nsmap)
+ss = True
 for p in pp:
-    if p.xpath(".//w:p", namespaces=a.getroot().nsmap):
-        print(p.xpath(".//text()", namespaces=a.getroot().nsmap))
-        p_parent = p.getparent()
-        b_index = p_parent.index(p)
-        copy_b = copy.deepcopy(p)
-        copy_b.text = "我是哈哈"
-        p_parent[b_index] = copy_b
+    parent = p.getparent()
+    index = parent.index(p)
+    # parent[index] = None
+    text = p.text
+    if text == "3" and ss:
+        parent.remove(p)
+        ss = False
 
-# print(etree.tostring(a, encoding="utf-8").decode("utf-8"))
+print(etree.tostring(a, pretty_print=True, encoding="utf-8").decode("utf-8"))
